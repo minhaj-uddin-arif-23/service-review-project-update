@@ -62,7 +62,23 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      if (currentUser?.email) {
+      setUser(currentUser)
+      setLoading(false);
+    });
+    return () => {
+      return unsubscribe();
+    };
+  }, []);
+
+  return (
+    <AuthContext.Provider value={userInformation}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+/**
+ * 
+ *      if (currentUser?.email) {
         setUser(currentUser);
         const { data } = await axios.post(
           `${import.meta.env.VITE_API_URL}/jwt`,
@@ -78,16 +94,4 @@ export default function AuthProvider({ children }) {
         );
         console.log(data)
       }
-      setLoading(false);
-    });
-    return () => {
-      return unsubscribe();
-    };
-  }, []);
-
-  return (
-    <AuthContext.Provider value={userInformation}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
+ */

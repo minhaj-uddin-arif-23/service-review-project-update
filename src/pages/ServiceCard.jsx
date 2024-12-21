@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function ServiceCard({data}) {
-  const {image, title,  desc, category, price} =data || {}
+  const {_id,image, title,  desc, category, price} =data || {}
   return (
     <div className="card card-compact bg-base-100 border-2  shadow-xl">
     <figure>
@@ -19,7 +20,7 @@ export default function ServiceCard({data}) {
       {desc}
     
       <div className="card-actions">
-        <button className="btn bg-lime-500 text-black font-bold">See Details</button>
+        <Link to={`/details/${_id}`} className="btn bg-lime-500 text-black font-bold">See Details</Link>
       </div>
     </div>
   </div>

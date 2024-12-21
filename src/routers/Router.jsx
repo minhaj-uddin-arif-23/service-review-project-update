@@ -8,6 +8,7 @@ import Error from "../pages/Error";
 import AddService from "../pages/AddService";
 import MyReviews from "../pages/MyReviews";
 import Service from "../pages/Service";
+import DetailsService from "../pages/DetailsService";
 
 
 
@@ -47,6 +48,11 @@ import Service from "../pages/Service";
         element:<Register />
       }
     ]
+  },
+  {
+    path:'/details/:id',
+    element:<DetailsService />,
+    loader:({params}) => fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`)
   },
   {
     path:'*',
