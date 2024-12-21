@@ -4,9 +4,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Hook/useAuth";
+// -------------------->
 export default function AddService() {
+
 const [startDate, setStartDate] = useState(new Date());
 const navigate = useNavigate()
+const {user} = useAuth()
+// ------------------>
 const handleService =async (e) => {
 e.preventDefault();
 const image = e.target.image.value;
@@ -16,7 +21,7 @@ const website = e.target.website.value;
 const desc = e.target.desc.value;
 const category = e.target.category.value;
 const price = e.target.price.value;
-const email = e.target.email.value;
+const email = user?.email
 const service = { image, title, name, website, desc, category,startDate, price, email };
 console.log(service);
 
@@ -76,9 +81,16 @@ return (
           <option disabled selected>
             Category
           </option>
-          <option>One Piece</option>
-          <option>Naruto</option>
-          <option>Death Note</option>
+          <option>Education</option>
+          <option>Language Learning</option>
+          <option>Medical Specialists</option>
+          <option>Repair Service Providers</option>
+          <option>Chemicals & Plastic</option>
+          <option>Cultural Goods</option>
+          <option>Bars & Cafes</option>
+          <option>Vegetarian & Diet</option>
+          <option>Jewelry & Watches</option>
+          <option>omputers & Phones</option>
         </select>
       </div>
       <div className="form-control">
@@ -96,11 +108,11 @@ return (
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input name="email" type="email" placeholder="email" // defaultValue={}
+          <input name="email" type="email" placeholder="email" defaultValue={user?.email} readOnly
             className="input input-bordered input-success w-full max-w-xs" required />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary">Add Service</button>
         </div>
     </form>
   </div>

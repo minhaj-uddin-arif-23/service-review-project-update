@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Error from "../pages/Error";
 import AddService from "../pages/AddService";
 import MyReviews from "../pages/MyReviews";
+import Service from "../pages/Service";
 
 
 
@@ -18,6 +19,10 @@ import MyReviews from "../pages/MyReviews";
       {
         path:'/',
         element:<Home />
+      },
+      {
+        path:'service',
+        element:<Service />
       },
       {
         path:'addService',
