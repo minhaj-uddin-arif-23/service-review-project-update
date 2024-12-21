@@ -21,6 +21,21 @@ export default function Login() {
    }
   }
 
+  const handleSignIn =async (e) => {
+    e.preventDefault()
+    const form = e.target;
+    const email= form.email.value
+    const password= form.password.value
+    console.log({email,password})
+    try{
+      await signIn(email,password)
+      toast.success("SignIn successfullt")
+      navigate(from , {replace:true})
+    }catch(err){
+      toast.error(err?.message)
+    }
+  }
+
   return (
     <div className="hero bg-base-200 min-h-screen my-10">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -38,12 +53,14 @@ export default function Login() {
           <div className="form-control mt-6">
             <button onClick={handleGoogle} className="btn btn-outline">Google</button>
           </div>
-          <form className="card-body">
+          <form onSubmit={handleSignIn}
+           className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
+              name="email"
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
@@ -55,6 +72,7 @@ export default function Login() {
                 <span className="label-text">Password</span>
               </label>
               <input
+              name="password"
                 type="password"
                 placeholder="password"
                 className="input input-bordered"

@@ -11,9 +11,9 @@ export default function Navbar() {
   const link = <>
   
     <NavLink to={`/`}><li className='mr-4 font-semibold text-lg uppercase'>Home</li></NavLink>
-    <NavLink to={`/h`}><li className='mr-4 font-semibold text-lg '>Services</li></NavLink>
-    <NavLink to={`/i`}><li className='mr-4 font-semibold text-lg '>Add Service</li></NavLink>
-    <NavLink to={`/l`}><li className='mr-4 font-semibold text-lg '>My Reviews</li></NavLink>
+    <NavLink to={`/`}><li className='mr-4 font-semibold text-lg '>Services</li></NavLink>
+    <NavLink to={`/addService`}><li className='mr-4 font-semibold text-lg '>Add Service</li></NavLink>
+    <NavLink to={`/myReview`}><li className='mr-4 font-semibold text-lg '>My Reviews</li></NavLink>
 
   </>
 

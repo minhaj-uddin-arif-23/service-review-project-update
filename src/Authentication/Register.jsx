@@ -30,7 +30,7 @@ export default function Register() {
     const Password = e.target.password.value;
     const Photo = e.target.photo.value;
     const acceptTearm = e.target.checked.checked;
-    // console.log(Name, Email, Password, Photo, acceptTearm);
+    console.log(Name, Email, Password, Photo, acceptTearm);
 
     setErrorMsg("");
     setSuccess(false);

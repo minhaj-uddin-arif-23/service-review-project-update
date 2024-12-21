@@ -11,7 +11,7 @@ export default function Layout() {
       {/* this is navbar */}
       <Navbar />
       </header>
-    <div className='w-11/12 mx-auto'>
+    <div className='w-11/12 mx-auto my-28'>
       {/* all components render or dynamically change this router */}
       <Outlet />
     </div>
