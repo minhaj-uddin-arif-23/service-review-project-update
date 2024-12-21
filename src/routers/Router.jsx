@@ -5,6 +5,8 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import Home from "../pages/Home";
 import Error from "../pages/Error";
+import AddService from "../pages/AddService";
+import MyReviews from "../pages/MyReviews";
 
 
 
@@ -16,6 +18,14 @@ import Error from "../pages/Error";
       {
         path:'/',
         element:<Home />
+      },
+      {
+        path:'addService',
+        element:<AddService />
+      },
+      {
+        path:'myReview',
+        element:<MyReviews />
       }
     ]
   },

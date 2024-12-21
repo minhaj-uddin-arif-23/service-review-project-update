@@ -10,13 +10,11 @@ export default function Navbar() {
 // console.log(signout)
   const link = <>
   
-    <NavLink to={`/`}><li className='mr-4 font-semibold text- uppercase'>Home</li></NavLink>
-    <NavLink to={`/h`}><li className='mr-4 font-semibold text- uppercase'>About me</li></NavLink>
-    <NavLink to={`/i`}><li className='mr-4 font-semibold text- uppercase'>Contact</li></NavLink>
-    <NavLink to={`/l`}><li className='mr-4 font-semibold text- uppercase'>Contact</li></NavLink>
-    <NavLink to={`/w`}><li className='mr-4 font-semibold text- uppercase'>Profile</li></NavLink>
-    <NavLink to={`/p`}><li className='mr-4 font-semibold text- uppercase'>All Page</li></NavLink>
-    <NavLink to={`/q`}><li className='mr-4 font-semibold text- uppercase'>Send me email</li></NavLink>
+    <NavLink to={`/`}><li className='mr-4 font-semibold text-lg uppercase'>Home</li></NavLink>
+    <NavLink to={`/h`}><li className='mr-4 font-semibold text-lg '>Services</li></NavLink>
+    <NavLink to={`/i`}><li className='mr-4 font-semibold text-lg '>Add Service</li></NavLink>
+    <NavLink to={`/l`}><li className='mr-4 font-semibold text-lg '>My Reviews</li></NavLink>
+
   </>
 
   return (
