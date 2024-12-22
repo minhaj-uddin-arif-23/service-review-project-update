@@ -44,6 +44,12 @@ export default function Navbar() {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/myService" className="font-semibold text-md">
+         My Services
+        </NavLink>
+      </li>
+
+      <li>
         <NavLink to="/addService" className="font-semibold text-md">
           Add Service
         </NavLink>

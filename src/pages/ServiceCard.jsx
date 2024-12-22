@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 export default function ServiceCard({data}) {
   const {_id,image, title,  desc, category, price} =data || {}
   return (
-    <div className="card card-compact bg-base-100 border-2  shadow-xl">
+    <div className="card   w-[300px] card-compact bg-base-100 border-2  shadow-xl">
     <figure>
-      <img className='w-80 object-cover'
+      <img className='w-full h-52 overflow-hidden p-5 rounded-2xl'
         src={image}
         alt="Shoes" />
     </figure>

@@ -44,7 +44,7 @@ export default function AddService() {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/add-services`, service);
       toast.success("Service added successfully");
-      navigate("/");
+      navigate("/service");
     } catch (err) {
       toast.error(err, "Data not added");
     }

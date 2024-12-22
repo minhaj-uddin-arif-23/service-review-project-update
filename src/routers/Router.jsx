@@ -10,6 +10,7 @@ import MyReviews from "../pages/MyReviews";
 import Service from "../pages/Service";
 import DetailsService from "../pages/DetailsService";
 import AddReview from "../pages/AddReview";
+import MyServices from "../pages/MyServices";
 // import MyReviewPage from "../Components/MyReviewPage";
 
 
@@ -34,6 +35,10 @@ import AddReview from "../pages/AddReview";
       {
         path:'myReview',
         element:<MyReviews />
+      },
+      {
+        path:'myService',
+        element:<MyServices />
       }
     ]
   },
