@@ -1,94 +1,100 @@
-import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { IoSearchOutline } from "react-icons/io5";
-import { IoCodeSlash } from "react-icons/io5";
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { IoCodeSlash } from 'react-icons/io5';
 import { AuthContext } from '../Shared_Context/AuthProvider';
-import { FaUserCircle } from 'react-icons/fa';
+
 export default function Navbar() {
+  const { user, signout } = useContext(AuthContext);
 
-  const {user,signout} = useContext(AuthContext)
-// console.log(signout)
-  const link = <>
-  
-    <NavLink to={`/`}><li className='mr-4 font-semibold text-lg uppercase'>Home</li></NavLink>
-    <NavLink to={`/service`}><li className='mr-4 font-semibold text-lg '>Services</li></NavLink>
-    <NavLink to={`/addService`}><li className='mr-4 font-semibold text-lg '>Add Service</li></NavLink>
-    <NavLink to={`/myReview`}><li className='mr-4 font-semibold text-lg '>My Reviews</li></NavLink>
+  const beforeLogin = (
+    <>
+      <li>
+        <NavLink to="/" className="font-semibold text-lg uppercase">
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/service" className="font-semibold text-lg">
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/auth/signIn" className="font-semibold text-lg">
+          Login
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/auth/signUp" className="font-semibold text-lg">
+          Register
+        </NavLink>
+      </li>
+    </>
+  );
 
-  </>
+  const afterLogin = (
+    <>
+      <li>
+        <NavLink to="/" className="font-semibold text-md uppercase">
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/service" className="font-semibold text-md">
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/addService" className="font-semibold text-md">
+          Add Service
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/myReview" className="font-semibold text-md">
+          My Reviews
+        </NavLink>
+      </li>
+      <li>
+        <button
+          onClick={signout}
+          className="btn btn-error text-white font-semibold"
+        >
+          Logout
+        </button>
+      </li>
+    </>
+  );
 
   return (
-    <div className="navbar bg-base-100">
-    <div className="navbar-start">
-      <div className="dropdown">
-        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h8m-8 6h16" />
-          </svg>
-        </div>
-        <ul
-          tabIndex={0}
-          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-          {link}
+    <div className="navbar bg-base-100 shadow-md">
+      <div className="flex-1 flex items-center gap-2">
+        {/* Logo */}
+        <IoCodeSlash className="text-lime-300 text-2xl" />
+        <NavLink to="/" className="btn btn-ghost text-xl uppercase">
+       Service Review
+        </NavLink>
+      </div>
+      <div className="flex-none">
+        <ul className="menu menu-horizontal px-1">
+          {user ? afterLogin : beforeLogin}
+          {user && (
+            <li>
+              <details>
+                <summary>
+                  <div className="avatar">
+                    <div title={user?.displayName} className="w-10 rounded-full">
+                      <img
+                        src={user?.photoURL}
+                        alt="User Avatar"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </div>
+                </summary>
+              </details>
+            </li>
+          )}
         </ul>
       </div>
-    <div className='flex '>
-      {/* logo */} <p className='mt-3 text-xl text-lime-300 font-bold'><IoCodeSlash /></p>
-    <a className="btn btn-ghost text-lg uppercase ">Project Name</a>
     </div>
-    </div>
-    <div className="navbar-center hidden lg:flex">
-      <ul className="menu menu-horizontal px-1">
-        {link}
-      </ul>
-    </div>
-    <div className="navbar-end  gap-4">
-    <div className="flex">
-            {
-            user && user?.email ? (
-              <div className="flex gap-2">
-                <Link to={`/profile`}>
-                  <img
-                    src={user?.photoURL}
-                    className="w-10 h-10 rounded-full"
-                    title={user?.displayName}
-                    alt=""
-                  />
-                </Link>
-              </div>
-            ) : (
-              <div className="mt-3 ">
-                <FaUserCircle />
-              </div>
-            )
-            }
-      </div>
-      {/* user && */}
-    {
-       user?.email ? (
-      <>
-        <button onClick={signout} className='btn bg-red-500' > Sign Out </button>
-      </>
-    )  :
-    (
-    <>
-      <div>
-      <Link to={`/auth/signIn`} className='btn bg-lime-400 text-black '>Sign in</Link>
-      <Link to={`/auth/signUp`} className='btn bg-lime-400 text-black '>Sign up</Link>
-      </div>
-    </>)
-    }
-
-    </div>
-  </div>
-  )
+  );
 }

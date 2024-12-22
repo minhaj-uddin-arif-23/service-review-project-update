@@ -10,6 +10,7 @@ import MyReviews from "../pages/MyReviews";
 import Service from "../pages/Service";
 import DetailsService from "../pages/DetailsService";
 import AddReview from "../pages/AddReview";
+// import MyReviewPage from "../Components/MyReviewPage";
 
 
 
@@ -62,5 +63,10 @@ import AddReview from "../pages/AddReview";
   {
     path:'/review',
     element:<AddReview />
-  }
+  },
+  // {
+  //   path:'/cardReview',
+  //   element:<MyReviewPage />
+  // },
+
 ])

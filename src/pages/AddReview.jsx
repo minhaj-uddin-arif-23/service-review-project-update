@@ -5,8 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-export default function AddReview() {
-  
+import { useAuth } from '../Hook/useAuth';
+export default function AddReview(){
+    const {user} = useAuth()
+      // const email = user?.email
   const [startDate, setStartDate] = useState(new Date());
   const[rating,setRating] = useState(null);
   const [hover,setHover] = useState(null);
@@ -16,12 +18,18 @@ export default function AddReview() {
     const form = e.target;
     const text = form.details.value;
     const rating = form.rating.value;
-    const review = {text,rating,startDate};
+    const review = {text,rating,
+      user :{
+        email : user?.email,
+        name : user?.displayName,
+        photo: user?.photoURL,
+      },
+      startDate};
     console.log(review)
     try{
       await axios.post(`${import.meta.env.VITE_API_URL}/add-review`,review)
       toast.success("Thanks to your valuable feedback!!")
-      navigate('/')
+      navigate('/myReview')
     }catch(err){
       toast.error("You can some mistake")
     }
