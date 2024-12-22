@@ -26,3 +26,10 @@ html{
 }
 /* active route */
 /* light mode dark mode */
+
+input[type=radio]{
+  display: none;
+}
+.star{
+  cursor: pointer;
+}

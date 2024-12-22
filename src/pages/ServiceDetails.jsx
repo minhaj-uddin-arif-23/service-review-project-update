@@ -1,37 +1,40 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 export default function ServiceDetails({service}) {
   const {image, title, name, website, desc, category,startDate, price, email} = service || {}
 
      return (
-      <div className="card bg-white w-full md:w-96 shadow-2xl rounded-lg overflow-hidden">
-      <figure className="h-64 bg-gray-200">
+      <div className="card bg-gray-50 md:w-2/3 shadow-lg rounded-xl overflow-hidden border border-gray-200 ml-48 my-20">
+     <div className='flex'>
+     <figure className=" bg-gray-100">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover"
         />
       </figure>
-      <div className="card-body p-6">
-        <h2 className="card-title text-2xl font-semibold text-gray-800">
+      <div className="card-body p-5">
+        <h2 className="card-title text-xl font-bold text-gray-700 mb-2">
           {title}
         </h2>
-        <p className="text-sm text-gray-500 mb-3">{website}</p>
-        <p className="text-gray-600 mb-2">{desc}</p>
-        <div className="flex justify-between items-center my-4">
-          <span className="text-lg font-medium text-green-600">{price}</span>
-          <span className="bg-blue-100 text-blue-500 px-3 py-1 text-sm rounded-full">
+        <p className="text-sm text-blue-600 underline mb-3">{website}</p>
+        <p className="text-gray-500 mb-4">{desc}</p>
+        <div className="flex justify-between items-center my-3">
+          <span className="text-xl font-semibold text-emerald-500">{price}</span>
+          <span className="bg-emerald-50 text-emerald-600 px-4 py-1 text-sm font-medium rounded-md">
             {category}
           </span>
         </div>
-        <p className="text-sm text-gray-500 italic">Contact: {email}</p>
-        <div className="card-actions justify-end mt-4">
-          <button className="btn btn-primary bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2 rounded-lg shadow-md hover:scale-105 transform transition-transform">
-            Explore More
-          </button>
+        <p className="text-sm text-gray-400 italic mb-4">Contact: {email}</p>
+        <div className="card-actions justify-end">
+          <Link to={`/review`} className="btn bg-lime-400 text-black">
+           Add Review
+          </Link>
         </div>
       </div>
+     </div>
     </div>
+    
     
   )
   

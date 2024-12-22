@@ -9,6 +9,7 @@ import AddService from "../pages/AddService";
 import MyReviews from "../pages/MyReviews";
 import Service from "../pages/Service";
 import DetailsService from "../pages/DetailsService";
+import AddReview from "../pages/AddReview";
 
 
 
@@ -57,5 +58,9 @@ import DetailsService from "../pages/DetailsService";
   {
     path:'*',
     element:<Error />
+  },
+  {
+    path:'/review',
+    element:<AddReview />
   }
 ])
