@@ -18,7 +18,7 @@ export default function Layout() {
   
       <footer>
         {/* statically all components can be shared */}
-        {/* <Footer /> */}
+        <Footer />
       </footer>
 
     </div>
