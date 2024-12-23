@@ -12,7 +12,7 @@ import DetailsService from "../pages/DetailsService";
 import AddReview from "../pages/AddReview";
 import MyServices from "../pages/MyServices";
 import UpdateReview from "../pages/UpdateReview";
-// import MyReviewPage from "../Components/MyReviewPage";
+import Protected_Router from "./Protected_Router";
 
 
 
@@ -36,11 +36,11 @@ import UpdateReview from "../pages/UpdateReview";
       },
       {
         path:'myReview',
-        element:<MyReviews />
+        element:<Protected_Router><MyReviews /></Protected_Router>
       },
       {
         path:'myService',
-        element:<MyServices />
+        element:<Protected_Router><MyServices /></Protected_Router>
       }
     ]
   },
