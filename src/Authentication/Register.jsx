@@ -58,7 +58,7 @@ export default function Register() {
         setSuccess(true);
 
         toast.success("Account created successfully!");
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         setErrorMsg(err.message);
