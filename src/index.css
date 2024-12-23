@@ -10,7 +10,7 @@ html{
   font-family: "Inter", serif;
 }
 .pagination button{
-  background-color: rgb(89, 0, 255);
+  background-color: rgb(244, 4, 4);
   padding: 10px 10px 10px 10px;
   color: rgb(255, 255, 255);
   width: 40px;
@@ -21,7 +21,7 @@ html{
    text-align: center;
 }
 .pagination .selectItem{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(103, 207, 23);
   color: black;
 }
 /* active route */

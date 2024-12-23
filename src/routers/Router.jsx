@@ -11,6 +11,7 @@ import Service from "../pages/Service";
 import DetailsService from "../pages/DetailsService";
 import AddReview from "../pages/AddReview";
 import MyServices from "../pages/MyServices";
+import UpdateReview from "../pages/UpdateReview";
 // import MyReviewPage from "../Components/MyReviewPage";
 
 
@@ -26,7 +27,8 @@ import MyServices from "../pages/MyServices";
       },
       {
         path:'service',
-        element:<Service />
+        element:<Service />,
+        loader:() => fetch(`${import.meta.env.VITE_API_URL}/serviceCount`)
       },
       {
         path:'addService',
@@ -69,9 +71,9 @@ import MyServices from "../pages/MyServices";
     path:'/review',
     element:<AddReview />
   },
-  // {
-  //   path:'/cardReview',
-  //   element:<MyReviewPage />
-  // },
+  {
+    path:'/update/:id',
+    element:<UpdateReview />
+  },
 
 ])

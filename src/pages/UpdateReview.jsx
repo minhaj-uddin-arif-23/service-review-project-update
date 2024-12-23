@@ -1,60 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosStarOutline } from "react-icons/io";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../Hook/useAuth";
 import { useLocation } from "react-router-dom";
-export default function AddReview() {
+export default function UpdateReview() {
   const { user } = useAuth();
   // const email = user?.email
   const [startDate, setStartDate] = useState(new Date());
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  const navigate = useNavigate();
-
+  // const navigate = useNavigate();
+  const [update,setUpdate] = useState({})
+const {id} = useParams()
   const location = useLocation()
   const {title} = location.state || {}
 
-  const addToReview = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const text = form.details.value;
-    const rating = form.rating.value;
-    const review = {
-      title,
-      text,
-      rating,
-      user: {
-        email: user?.email,
-        name: user?.displayName,
-        photo: user?.photoURL,
-      },
-      startDate,
-    };
-    console.log(review);
-    try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/add-review`, review);
-      toast.success("Thanks to your valuable feedback!!");
-      navigate("/myReview");
-    } catch (err) {
-      toast.error("You can some mistake");
-    }
-  };
+  useEffect(()=>{
+    fetchReview();
+  },[])
+  const fetchReview = async () => {
+
+    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/update/${id}`)
+    setUpdate(data)
+    // console.log(data)
+  } 
+  console.log(update)
 
   return (
     <div>
-      <div className="card bg-base-100 w-ful max-w-sm shrink-0 shadow-2xl">
-        <h1 className="text-4xl  font-semibold">Review This Service</h1>
-        <form onSubmit={addToReview} className="card-body">
+      <div className="card bg-base-100 w-ful max-w-sm shrink-0 shadow-2xl ml-20 my-10 p-3">
+        <h1 className="text-4xl  font-semibold p-3">Update your review</h1>
+        <form  className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Review in service</span>
             </label>
             <textarea
               name="details"
+              defaultValue={update.text}
               className="textarea textarea-info"
               placeholder="Bio"
             ></textarea>
@@ -69,6 +56,7 @@ export default function AddReview() {
                     type="radio"
                     name="rating"
                     value={currentRating}
+                    defaultValue={update.rating}
                     onClick={() => setRating(currentRating)}
                   />
                   <IoIosStarOutline

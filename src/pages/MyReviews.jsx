@@ -92,7 +92,9 @@ export default function MyReviews() {
       </p>
 
       <div className="flex gap-4">
-        <Link className="btn btn-outline btn-sm">Edit</Link>
+        <Link
+        to={`/update/${data._id}`}
+        className="btn btn-outline btn-sm">Edit</Link>
         <button
           onClick={() => modernDelete(data._id)}
           className="btn btn-error btn-sm text-white"
