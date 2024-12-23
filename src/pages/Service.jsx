@@ -13,7 +13,7 @@ export default function Service() {
   const totalService = Number(count) || 0;
   const numberOfPages = Math.ceil(totalService / itemperPage);
   const pages =  [...Array(numberOfPages).keys()];
-  console.log(pages);
+  // console.log(pages);
 
   const handleChange = (e) => {
     // console.log(e.target.value);

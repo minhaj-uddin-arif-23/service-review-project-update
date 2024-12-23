@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import HomeCard from './HomeCard'
 // import Pagination from '../Components/pagination'
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       {/* photo anr write moving */}
       {/* <Pagination /> */}
       {/* carousal */}
+      <HomeCard />
       {/* faq */}
     </div>
   )
