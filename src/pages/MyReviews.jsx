@@ -65,7 +65,9 @@ export default function MyReviews() {
   };
 
   return (
-    <div className='flex gap-5'>
+    <>
+    {/* <h1>Total Review is: {review.length}</h1> */}
+        <div className='flex gap-5'>
       {
         review?.map(data => (<>
          <div className="card bg-base-100 shadow-md p-4 max-w-md mx-auto">
@@ -107,5 +109,6 @@ export default function MyReviews() {
         </>))
       }
     </div>
+    </>
   )
 }

@@ -13,8 +13,9 @@ import { auth } from "../firebase/firebase.init";
 import Lottie from "lottie-react";
 
 export default function Register() {
-  const { google, createUser, setUser, updateUser } =
+  const { google, createUser,  updateUserInfo } =
     useContext(AuthContext);
+    const [user,setUser] =useState(null)
   const [errorMsg, setErrorMsg] = useState(""); 
   const [success, setSuccess] = useState(false);
   // state for password eye show
@@ -22,7 +23,7 @@ export default function Register() {
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     const Name = e.target.name.value;
@@ -50,20 +51,17 @@ export default function Register() {
       return;
     }
     // create user, email and password
-    createUser(Email, Password, Name)
-      .then((result) => {
-        const user = result.user;
-
-        setUser(user);
-        setSuccess(true);
-
-        toast.success("Account created successfully!");
-        navigate(location?.state ? location.state : "/");
-      })
-      .catch((err) => {
-        setErrorMsg(err.message);
-        setSuccess(false);
-      });
+    try{
+      const result = await createUser(Email,Password)
+      console.log(result)
+      await updateUserInfo(Name,Photo)
+      setUser({...result.user,photoURL:Photo,displayName:Name})
+      toast.success("Registration successfully");
+      navigate('/');
+    }catch(err){
+      console.log(err)
+      toast.error(err?.message)
+    }
   };
 
   //sign google and github

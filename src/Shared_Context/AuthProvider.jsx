@@ -45,8 +45,12 @@ export default function AuthProvider({ children }) {
     return sendPasswordResetEmail(auth, email);
   };
 
-  const updateUserInfo = (profile) => {
-    return updateProfile(auth.currentUser, profile);
+  const updateUserInfo = (name,photo) => {
+    return updateProfile(auth.currentUser,{
+      displayName:name,
+      photURL:photo
+    }
+      );
   };
 
   const userInformation = {
@@ -62,11 +66,27 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser)
+      // setUser(currentUser)
+      if(currentUser?.email){
+        setUser(currentUser);
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/jwt`,
+          { email: currentUser?.email },{withCredentials:true}
+        );
+        
+      }else{
+           // remove from the server side
+        setUser(currentUser)
+        await axios.get(
+          `${import.meta.env.VITE_API_URL}/logout`,
+          {withCredentials:true}
+        );
+        
+      }
       setLoading(false);
     });
     return () => {
-      return unsubscribe();
+       unsubscribe();
     };
   }, []);
 
@@ -79,19 +99,8 @@ export default function AuthProvider({ children }) {
 /**
  * 
  *      if (currentUser?.email) {
-        setUser(currentUser);
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL}/jwt`,
-          { email: currentUser?.email },{withCredentials:true}
-        );
-        console.log(data);
+    
       }else{ 
-        // remove from the server side
-        setUser(currentUser)
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL}/logout`,
-          { email: currentUser?.email },{withCredentials:true}
-        );
-        console.log(data)
+       
       }
  */

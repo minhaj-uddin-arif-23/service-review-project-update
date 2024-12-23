@@ -13,11 +13,11 @@ export default function HomeCard() {
     const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/home-service`)
     setHome(data)
   }
-  console.log(home)
+  
 
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0'>
         {
           home?.map((data) => (
                     <ServiceCard key={data._id} data={data} />

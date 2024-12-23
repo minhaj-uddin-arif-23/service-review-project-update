@@ -52,8 +52,11 @@ export default function AddService() {
 
   return (
     <div>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <form onSubmit={handleService} className="card-body">
+  <div className="card bg-base-100 w-full max-w-full shrink-0 shadow-2xl">
+    <form onSubmit={handleService} className="card-body">
+      <div className="flex flex-wrap gap-4">
+        {/* Left Side */}
+        <div className="flex-1">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Service Image</span>
@@ -62,7 +65,7 @@ export default function AddService() {
               name="image"
               type="url"
               placeholder="Upload your image"
-              className="input input-bordered input-success w-full max-w-xs"
+              className="input input-bordered input-success w-full"
               required
             />
           </div>
@@ -74,7 +77,7 @@ export default function AddService() {
               name="title"
               type="text"
               placeholder="title"
-              className="input input-bordered input-success w-full max-w-xs"
+              className="input input-bordered input-success w-full"
               required
             />
           </div>
@@ -86,10 +89,14 @@ export default function AddService() {
               name="name"
               type="text"
               placeholder="name"
-              className="input input-bordered input-success w-full max-w-xs"
+              className="input input-bordered input-success w-full"
               required
             />
           </div>
+        </div>
+
+        {/* Right Side */}
+        <div className="flex-1">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Website</span>
@@ -98,39 +105,19 @@ export default function AddService() {
               name="website"
               type="url"
               placeholder="website link"
-              className="input input-bordered input-success w-full max-w-xs"
+              className="input input-bordered input-success w-full"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Desciption</span>
+              <span className="label-text">Description</span>
             </label>
             <textarea
               name="desc"
-              className="textarea textarea-accent"
+              className="textarea textarea-accent w-full"
               placeholder="Bio"
             ></textarea>
-          </div>
-          <div>
-            <select
-              name="category"
-              className="select select-success w-full max-w-xs"
-            >
-              <option disabled selected>
-                Category
-              </option>
-              <option>Food</option>
-              <option>Transport</option>
-              <option>IT</option>
-              <option>Repair Service Providers</option>
-              <option>Chemicals & Plastic</option>
-              <option>Cultural Goods</option>
-              <option>Bars & Cafes</option>
-              <option>Vegetarian & Diet</option>
-              <option>Jewelry & Watches</option>
-              <option>Computers & Phones</option>
-            </select>
           </div>
           <div className="form-control">
             <label className="label">
@@ -140,35 +127,67 @@ export default function AddService() {
               name="price"
               type="number"
               placeholder="Price"
-              className="input input-bordered input-success w-full max-w-xs"
+              className="input input-bordered input-success w-full"
               required
             />
           </div>
-          {/* date */}
-          <DatePicker
-            selected={startDate}
-            className="input input-bordered input-success w-full max-w-xs"
-            onChange={(date) => setStartDate(date)} //only when value has changed
-          />
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
-            <input
-              name="email"
-              type="email"
-              placeholder="email"
-              defaultValue={user?.email}
-              readOnly
-              className="input input-bordered input-success w-full max-w-xs"
-              required
-            />
-          </div>
-          <div className="form-control mt-6">
-            <button className="btn btn-primary">Add Service</button>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
+
+      {/* Category & Date Picker (full width) */}
+      <div className="form-control">
+        <select
+          name="category"
+          className="select select-success w-full max-w-xs"
+        >
+          <option disabled selected>
+            Category
+          </option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>IT</option>
+          <option>Repair Service Providers</option>
+          <option>Chemicals & Plastic</option>
+          <option>Cultural Goods</option>
+          <option>Bars & Cafes</option>
+          <option>Vegetarian & Diet</option>
+          <option>Jewelry & Watches</option>
+          <option>Computers & Phones</option>
+        </select>
+      </div>
+
+      {/* Date Picker */}
+      <div className="form-control">
+        <DatePicker
+          selected={startDate}
+          className="input input-bordered input-success w-full"
+          onChange={(date) => setStartDate(date)} //only when value has changed
+        />
+      </div>
+
+      {/* Email Input */}
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Email</span>
+        </label>
+        <input
+          name="email"
+          type="email"
+          placeholder="email"
+          defaultValue={user?.email}
+          readOnly
+          className="input input-bordered input-success w-full"
+          required
+        />
+      </div>
+
+      {/* Submit Button */}
+      <div className="form-control mt-6">
+        <button className="btn btn-primary w-full">Add Service</button>
+      </div>
+    </form>
+  </div>
+</div>
+
   );
 }

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoCodeSlash } from 'react-icons/io5';
 import { AuthContext } from '../Shared_Context/AuthProvider';
+import { FcServices } from 'react-icons/fc';
 
 export default function Navbar() {
   const { user, signout } = useContext(AuthContext);
@@ -74,7 +75,7 @@ export default function Navbar() {
     <div className="navbar bg-base-100 shadow-md">
       <div className="flex-1 flex items-center gap-2">
         {/* Logo */}
-        <IoCodeSlash className="text-lime-300 text-2xl" />
+        <FcServices  className="text-lime-300 text-2xl" />
         <NavLink to="/" className="btn btn-ghost text-xl uppercase">
        Service Review
         </NavLink>
