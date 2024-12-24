@@ -10,14 +10,15 @@ import { useLocation } from "react-router-dom";
 export default function UpdateReview() {
   const { user } = useAuth();
   // const email = user?.email
+  
   const [startDate, setStartDate] = useState(new Date());
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [update,setUpdate] = useState({})
 const {id} = useParams()
-  const location = useLocation()
-  const {title} = location.state || {}
+  // const location = useLocation()
+  // const {title} = location.state || {}
 
   useEffect(()=>{
     fetchReview();
@@ -35,18 +36,16 @@ const {id} = useParams()
     const form = e.target;
     const text = form.details.value;
     const rating = form.rating.value;
-    const review = {
-      
+    const review = {  
       text,
       rating,
-      
-      startDate,
+      startDate
     };
     console.log(review);
     try {
       await axios.put(`${import.meta.env.VITE_API_URL}/update-review-add/${id}`, review);
       toast.success("Your Review is updated!!");
-      navigate("/");
+      navigate("/myReview");
     } catch (err) {
       toast.error("You can some mistake");
     }
@@ -82,7 +81,8 @@ const {id} = useParams()
                     type="radio"
                     name="rating"
                     value={currentRating}
-                    defaultValue={update.rating}
+                    checked={rating === currentRating}
+                    // defaultValue={update.rating}
                     onClick={() => setRating(currentRating)}
                   />
                   <IoIosStarOutline

@@ -50,72 +50,110 @@ export default function UpdateService() {
 
 
   return (
- <>
-  <h1 className='ml-10 text-4xl border-2 px-5 py-3 text-lime-900 mr-10 my-4'>Update your Service</h1>
-    <div className='ml-10 my-5'>
-    <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl p-4">
-      <form
-      onSubmit={handleServiceUpdate}
-      className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Title</span>
-          </label>
-          <input 
-          defaultValue={update.title}
-          type="text"
-         name='title'
-          placeholder="title" className="input input-bordered input-info w-full max-w-xs" required />
+    <>
+    <h1 className="text-3xl font-bold text-center border-b-4 border-lime-400 inline-block px-6 py-3 text-gray-700 my-6">
+      Update Your Service
+    </h1>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-0 via-yellow-50 to-red-50">
+      <div className="card bg-gradient-to-r from-green-200 via-lime-300 to-teal-300 w-full max-w-lg shadow-lg p-8 rounded-lg">
+        <form onSubmit={handleServiceUpdate} className="space-y-5">
+          {/* Title */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-medium text-gray-600">Title</span>
+            </label>
+            <input
+              defaultValue={update.title}
+              type="text"
+              name="title"
+              placeholder="Title"
+              className="input input-bordered input-info w-full"
+              required
+            />
+          </div>
+  
+          {/* Company Name */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-medium text-gray-600">
+                Company Name
+              </span>
+            </label>
+            <input
+              name="name"
+              type="text"
+              defaultValue={update.name}
+              placeholder="Name your company"
+              className="input input-bordered input-info w-full"
+              required
+            />
+          </div>
+  
+          {/* Category */}
+          {
+            update.category && (
+              <div className="form-control">
+            <label className="label">
+              <span className="label-text font-medium text-gray-600">
+                Category
+              </span>
+            </label>
+            <select
+            defaultValue={update.category}
+              name="category"
+              className="select select-info w-full"
+              required
+            >
+              <option disabled selected>
+                Category
+              </option>
+              <option>Food</option>
+              <option>Transport</option>
+              <option>IT</option>
+              <option>Repair Service Providers</option>
+              <option>Chemicals & Plastic</option>
+              <option>Cultural Goods</option>
+              <option>Bars & Cafes</option>
+              <option>Vegetarian & Diet</option>
+              <option>Jewelry & Watches</option>
+              <option>Computers & Phones</option>
+            </select>
+          </div>
+            )
+          }
+  
+          {/* Price */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-medium text-gray-600">Price</span>
+            </label>
+            <input
+              name="price"
+              type="number"
+              defaultValue={update.price}
+              placeholder="Price"
+              className="input input-bordered input-info w-full"
+              required
+            />
+          </div>
+  
+          {/* Submit Button */}
+          <div className="form-control mt-4">
+            <button className="btn bg-lime-400 hover:bg-lime-500 text-black w-full">
+              Update Service
+            </button>
+          </div>
+        </form>
+  
+        {/* My Service Link */}
+        <div className="text-center mt-6">
+          <Link to="/myService" className="btn bg-sky-500 hover:bg-sky-600 text-white">
+            My Service Page
+          </Link>
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">company Name</span>
-          </label>
-          <input
-          name='name'
-          type="text" placeholder="name your company" className="input input-bordered input-info w-full max-w-xs" required />
-      
-        </div>
-        {/* update category  */}
-        <div className="form-control">
-        <select
-          name="category"
-          className="select select-success w-full max-w-xs"
-        >
-          <option disabled selected>
-            Category
-          </option>
-          <option>Food</option>
-          <option>Transport</option>
-          <option>IT</option>
-          <option>Repair Service Providers</option>
-          <option>Chemicals & Plastic</option>
-          <option>Cultural Goods</option>
-          <option>Bars & Cafes</option>
-          <option>Vegetarian & Diet</option>
-          <option>Jewelry & Watches</option>
-          <option>Computers & Phones</option>
-        </select>
       </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Price</span>
-          </label>
-          <input
-          name='price'
-          type="number" placeholder="price" className="input input-bordered input-info w-full max-w-xs" required />
-          
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn bg-lime-400 text-black">Update Service</button>
-        </div>
-      </form>
-    
     </div>
-    <div className='my-3'>
-        <Link to={`/myService`} className='btn bg-sky-500 text-white'>My Serivce page</Link>
-      </div>
-    </div>
- </>
+  </>
+  
   )
 }

@@ -68,67 +68,106 @@ export default function MyServices() {
   
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-green-500 my-4">
-        {" "}
-        {user?.displayName} your all Service
-      </h1>
-      {/* search */}
-      <div>
-        <div className="my-5">
-          <input
-            type="text"
-            onChange={(e)=> setSearch(e.target.value)}
-            placeholder="Search here"
-            className="input input-bordered input-primary w-full max-w-xs"
-          />
-        </div>
-      </div>
-      <div>
-        <div className="overflow-x-auto">
-          <table className="table table-zebra">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Number</th>
-                <th>Title</th>
-                <th>Company Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Update</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* row 1 */}
-              {myReview?.map((data, index) => (
-                <>
-                  <tr>
-                    <th>{index + 1}</th>
-                    <th>{data.title}</th>
-                    <td>{data.name}</td>
-                    <td>{data.category}</td>
-                    <td>{data.price}</td>
-                    <td>
-                      <Link to={`/updateService/${data._id}`} className="btn bg-lime-400 text-black">
-                        <CiEdit />
-                        Edit
-                      </Link>
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => myserviceDelete(data._id)}
-                        className="btn bg-red-500 text-white"
-                      >
-                        Delete <MdDeleteForever />
-                      </button>
-                    </td>
-                  </tr>
-                </>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <h1 className="text-3xl font-semibold text-green-600 my-6 text-center">
+      {user?.displayName} - Your All Services
+    </h1>
+  
+    {/* Search */}
+    <div className="flex justify-center my-6">
+      <input
+        type="text"
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search services..."
+        className="input input-bordered input-primary w-96 max-w-full"
+      />
     </div>
+  
+    <div className="overflow-x-auto shadow-md rounded-lg">
+      <table className="table table-zebra table-auto w-full lg:visible invisible ">
+        {/* Table Header */}
+        <thead>
+          <tr className="bg-green-100 text-green-700">
+            <th className="py-3 px-4 text-left text-sm sm:text-base">#</th>
+            <th className="py-3 px-4 text-left text-sm sm:text-base">Title</th>
+            <th className="py-3 px-4 text-left text-sm sm:text-base">Company Name</th>
+            <th className="py-3 px-4 text-left text-sm sm:text-base">Category</th>
+            <th className="py-3 px-4 text-left text-sm sm:text-base">Price</th>
+            <th className="py-3 px-4 text-center text-sm sm:text-base">Update</th>
+            <th className="py-3 px-4 text-center text-sm sm:text-base">Delete</th>
+          </tr>
+        </thead>
+  
+        {/* Table Body */}
+        <tbody>
+          {myReview?.map((data, index) => (
+            <tr key={data._id} className="hover:bg-gray-50 transition">
+              <td className="py-3 px-4 text-sm sm:text-base">{index + 1}</td>
+              <td className="py-3 px-4 text-sm sm:text-base">{data.title}</td>
+              <td className="py-3 px-4 text-sm sm:text-base">{data.name}</td>
+              <td className="py-3 px-4 text-sm sm:text-base">{data.category}</td>
+              <td className="py-3 px-4 text-sm sm:text-base">{data.price}</td>
+              <td className="py-3 px-4 text-center">
+                <Link to={`/updateService/${data._id}`} className="btn btn-sm bg-lime-400 text-black hover:bg-lime-500">
+                  <CiEdit className="mr-2" />
+                  Edit
+                </Link>
+              </td>
+              <td className="py-3 px-4 text-center">
+                <button
+                  onClick={() => myserviceDelete(data._id)}
+                  className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
+                >
+                  Delete <MdDeleteForever className="ml-2" />
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+        {/* For small screens, use flex layout */}
+    
+    <div className="sm:hidden">
+     
+      {myReview?.map((data, index) => (
+        <div key={data._id} className="flex flex-col bg-gray-100 my-3 p-4 rounded-lg shadow-md">
+          <div className="flex justify-between mb-2">
+            <span className="font-semibold">#</span>
+            <span>{index + 1}</span>
+          </div>
+          <div className="flex justify-between mb-2">
+            <span className="font-semibold">Title</span>
+            <span>{data.title}</span>
+          </div>
+          <div className="flex justify-between mb-2">
+            <span className="font-semibold">Company Name</span>
+            <span>{data.name}</span>
+          </div>
+          <div className="flex justify-between mb-2">
+            <span className="font-semibold">Category</span>
+            <span>{data.category}</span>
+          </div>
+          <div className="flex justify-between mb-2">
+            <span className="font-semibold">Price</span>
+            <span>{data.price}</span>
+          </div>
+          <div className="flex justify-between">
+            <Link to={`/updateService/${data._id}`} className="btn btn-sm bg-lime-400 text-black hover:bg-lime-500">
+              <CiEdit className="mr-2" />
+              Edit
+            </Link>
+            <button
+              onClick={() => myserviceDelete(data._id)}
+              className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
+            >
+              Delete <MdDeleteForever className="ml-2" />
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+    </div>
+  </div>
+  
+  
   );
 }

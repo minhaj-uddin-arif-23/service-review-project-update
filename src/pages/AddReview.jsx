@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Hook/useAuth";
 import { useLocation } from "react-router-dom";
+import NavbarExtra from "../Components/NavbarExtra";
 export default function AddReview() {
   const { user } = useAuth();
   // const email = user?.email
@@ -45,58 +46,90 @@ export default function AddReview() {
   };
 
   return (
+    <>
     <div>
-      <div className="card bg-base-100 w-ful max-w-sm shrink-0 shadow-2xl">
-        <h1 className="text-4xl  font-semibold">Review This Service</h1>
-        <form onSubmit={addToReview} className="card-body">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Review in service</span>
-            </label>
-            <textarea
-              name="details"
-              className="textarea textarea-info"
-              placeholder="Bio"
-            ></textarea>
-          </div>
-          {/* review */}
-          <div>
-            {[...Array(5)].map((star, index) => {
-              const currentRating = index + 1;
-              return (
-                <label>
-                  <input
-                    type="radio"
-                    name="rating"
-                    value={currentRating}
-                    onClick={() => setRating(currentRating)}
-                  />
-                  <IoIosStarOutline
-                    className="star"
-                    color={
-                      currentRating <= (hover || rating) ? "#ffc107" : "#e4e5e9"
-                    }
-                    onMouseEnter={() => setHover(currentRating)}
-                    onMouseLeave={() => setHover(null)}
-                    size={30}
-                  />
-                </label>
-              );
-            })}
-          </div>
-          <div>
-            {/* date */}
-            <DatePicker
-              selected={startDate}
-              className="input input-bordered input-info w-full max-w-xs"
-              onChange={(date) => setStartDate(date)} //only when value has changed
-            />
-          </div>
-          <div className="form-control mt-6">
-            <button className="btn bg-lime-400 text-black">Save</button>
-          </div>
-        </form>
-      </div>
+        <NavbarExtra />
     </div>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-lime-50 via-yellow-50 to-pink-100">
+  <div className="card w-full max-w-lg shadow-xl p-6 rounded-lg bg-gradient-to-r from-blue-200 to-blue-300">
+    <h1 className="text-3xl font-bold text-center mb-4 text-gray-800">
+      Review This Service
+    </h1>
+    <form onSubmit={addToReview} className="space-y-6">
+      
+      {/* Rating */}
+      <div className="form-control">
+        <label className="label justify-center">
+          <span className="label-text font-medium text-gray-700">
+            Rate This Service
+          </span>
+        </label>
+        <div className="flex justify-center space-x-2">
+          {[...Array(5)].map((_, index) => {
+            const currentRating = index + 1;
+            return (
+              <label key={index} className="cursor-pointer">
+                <input
+                  type="radio"
+                  name="rating"
+                  value={currentRating}
+                  className="hidden"
+                  onClick={() => setRating(currentRating)}
+                />
+                <IoIosStarOutline
+                  className="transition duration-300"
+                  color={
+                    currentRating <= (hover || rating) ? "#f59e0b" : "#e5e7eb"
+                  }
+                  onMouseEnter={() => setHover(currentRating)}
+                  onMouseLeave={() => setHover(null)}
+                  size={35}
+                />
+              </label>
+            );
+          })}
+        </div>
+      </div>
+     
+      <div>
+        <p className="text-2xl font-semibold">{title}</p>
+      </div>
+      {/* Review Text */}
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text font-medium text-gray-700">Review</span>
+        </label>
+        <textarea
+          name="details"
+          className="textarea textarea-info w-full"
+          placeholder="Write your review here..."
+        ></textarea>
+      </div>
+
+      {/* Date */}
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text font-medium text-gray-700">Date</span>
+        </label>
+        <DatePicker
+          selected={startDate}
+          className="input input-info w-full"
+          onChange={(date) => setStartDate(date)} //only when value has changed
+        />
+      </div>
+
+      {/* Submit Button */}
+      <div className="form-control mt-4">
+        <button className="btn bg-lime-400 text-black hover:bg-lime-500 w-full">
+          Save Review
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+    </>
+
+  
+
   );
 }

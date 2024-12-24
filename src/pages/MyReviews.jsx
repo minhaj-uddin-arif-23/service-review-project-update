@@ -38,12 +38,12 @@ export default function MyReviews() {
         <div className="flex gap-3 items-center">
           <div>
             <p className="font-semibold">
-              Are you <b className="text-blue-400">Sure?</b>
+              Discard your <b className="font-bold text-lime-900">review?</b>
             </p>
           </div>
-          <div className="gap-2">
+          <div className="flex gap-3">
             <button
-            className="btn bg-red-500 text-white"
+            className="btn btn-error btn-sm text-white"
               onClick={() => {
 
                 toast.dismiss(t.id);
@@ -53,7 +53,7 @@ export default function MyReviews() {
               yes
             </button>
             <button
-            className="btn btn-outline ml-2"
+            className="btn bg-lime-500 btn-sm text-white"
              onClick={() => toast.dismiss(t.id)}>cancel</button>
           </div>
         </div>
@@ -67,10 +67,10 @@ export default function MyReviews() {
   return (
     <>
     {/* <h1>Total Review is: {review.length}</h1> */}
-        <div className='flex gap-5'>
+        <div className=' gap-5 space-y-10'>
       {
         review?.map(data => (<>
-         <div className="card bg-base-100 shadow-md p-4 max-w-md mx-auto">
+         <div className="card   shadow-md p-4 max-w-md mx-auto">
       
 
       <div className="flex items-center gap-4 mb-4">
