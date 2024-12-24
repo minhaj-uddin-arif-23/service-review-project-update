@@ -4,6 +4,7 @@ import { useAuth } from "../Hook/useAuth";
 import toast from "react-hot-toast";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function MyServices() {
   const [myReview, setReview] = useState([]);
@@ -62,6 +63,9 @@ export default function MyServices() {
     ));
   };
 
+
+
+  
   return (
     <div>
       <h1 className="text-2xl font-semibold text-green-500 my-4">
@@ -105,10 +109,10 @@ export default function MyServices() {
                     <td>{data.category}</td>
                     <td>{data.price}</td>
                     <td>
-                      <button className="btn bg-lime-400 text-black">
+                      <Link to={`/updateService/${data._id}`} className="btn bg-lime-400 text-black">
                         <CiEdit />
                         Edit
-                      </button>
+                      </Link>
                     </td>
                     <td>
                       <button

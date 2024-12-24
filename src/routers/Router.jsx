@@ -13,6 +13,7 @@ import AddReview from "../pages/AddReview";
 import MyServices from "../pages/MyServices";
 import UpdateReview from "../pages/UpdateReview";
 import Protected_Router from "./Protected_Router";
+import UpdateService from "../pages/UpdateService";
 
 
 
@@ -74,6 +75,11 @@ import Protected_Router from "./Protected_Router";
   {
     path:'/update/:id',
     element:<UpdateReview />
+  },
+  // service update
+  {
+    path:'/updateService/:id',
+    element:<UpdateService />
   },
 
 ])

@@ -28,13 +28,39 @@ const {id} = useParams()
     setUpdate(data)
     // console.log(data)
   } 
-  console.log(update)
+  // console.log(update)
+  // update review
+  const reviewUpdate = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const text = form.details.value;
+    const rating = form.rating.value;
+    const review = {
+      
+      text,
+      rating,
+      
+      startDate,
+    };
+    console.log(review);
+    try {
+      await axios.put(`${import.meta.env.VITE_API_URL}/update-review-add/${id}`, review);
+      toast.success("Your Review is updated!!");
+      navigate("/");
+    } catch (err) {
+      toast.error("You can some mistake");
+    }
+  };
+
+
 
   return (
     <div>
       <div className="card bg-base-100 w-ful max-w-sm shrink-0 shadow-2xl ml-20 my-10 p-3">
         <h1 className="text-4xl  font-semibold p-3">Update your review</h1>
-        <form  className="card-body">
+        <form  
+        onSubmit={reviewUpdate}
+        className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Review in service</span>
