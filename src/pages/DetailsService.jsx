@@ -11,8 +11,10 @@ export default function DetailsService() {
   const {image, title, name, website, desc, category,startDate, price, email} = data || {}
   return (
   <>
-    <div>
-      <Navbar />
+    <div className=''>
+     <div className=''>
+     <Navbar />
+     </div>
     </div>
   <div>
       

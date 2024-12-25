@@ -47,7 +47,7 @@ export default function AddReview() {
 
   return (
     <>
-    <div>
+    <div className="">
         <NavbarExtra />
     </div>
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-lime-50 via-yellow-50 to-pink-100">

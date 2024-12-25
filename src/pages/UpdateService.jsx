@@ -54,8 +54,8 @@ export default function UpdateService() {
     <h1 className="text-3xl font-bold text-center border-b-4 border-lime-400 inline-block px-6 py-3 text-gray-700 my-6">
       Update Your Service
     </h1>
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-0 via-yellow-50 to-red-50">
-      <div className="card bg-gradient-to-r from-green-200 via-lime-300 to-teal-300 w-full max-w-lg shadow-lg p-8 rounded-lg">
+    <div className="flex justify-center items-center  bg-gradient-to-r from-blue-0 via-yellow-50 to-red-50">
+      <div className="card bg-gradient-to-r from-green-200 via-lime-50 to-teal-50 w-full max-w-lg shadow-2xl border-2 border-gray-400 p-8 rounded-lg">
         <form onSubmit={handleServiceUpdate} className="space-y-5">
           {/* Title */}
           <div className="form-control">

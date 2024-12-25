@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ALLReviews from "../Components/ALLReviews";
 export default function ServiceDetails({ service }) {
   const {
     image,
@@ -17,7 +18,8 @@ export default function ServiceDetails({ service }) {
 
 
   return (
-    <div className="card bg-gray-50 md:w-2/3 shadow-lg rounded-xl overflow-hidden border border-gray-200 ml-48 my-10">
+   <>
+         <div className="card bg-gray-50 md:w-2/3 shadow-lg rounded-xl overflow-hidden border border-gray-200 ml-48 my-10">
       <div className="flex">
         <figure className=" bg-gray-100">
           <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -46,6 +48,12 @@ export default function ServiceDetails({ service }) {
           </div>
         </div>
       </div>
+       
     </div>
+    
+    <div>
+    </div>
+   
+   </>
   );
 }

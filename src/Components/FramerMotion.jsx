@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from "motion/react"
+import { Link } from 'react-router-dom';
 export default function FramerMotion() {
   const typingVariants = {
     hidden: {
@@ -42,7 +43,7 @@ export default function FramerMotion() {
   placeholder="Type here"
   className="input input-bordered input-accent w-full rounded-lg max-w-xs" />
       
-      <button className="btn bg-lime-100 ml-4">Find one</button>
+      <Link to={`/service`} className="btn bg-lime-400 ml-4 font-bold">Find one</Link>
     </div>
   </div>
 </div>

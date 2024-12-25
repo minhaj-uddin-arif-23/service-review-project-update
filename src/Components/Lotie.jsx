@@ -23,11 +23,12 @@ export default function Lotie() {
             repeatType: "reverse", // Reverse the animation
           }}
           className="text-5xl font-bold"> Service Available in today!</motion.h1>
-        <p className="py-6">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-          quasi. In deleniti eaque aut repudiandae et a id nisi.
+        <p className="py-6 text-gray-600">
+     
+
+Backend Forge provides cutting-edge backend development services today, offering businesses scalable, secure, and efficient solutions that drive performance, enhance system integration, and help businesses stay competitive in the evolving tech landscape
         </p>
-        <button className="btn btn-primary">Get Started</button>
+        <button className="btn bg-lime-400 ">See More</button>
       </div>
     </div>
   </div>

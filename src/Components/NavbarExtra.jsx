@@ -1,14 +1,20 @@
 import React from 'react'
+import { SiBackendless } from 'react-icons/si'
 import { Link } from 'react-router-dom'
 
 export default function NavbarExtra() {
   return (
     <>
+    <div className='bg-black'>
     <div className='w-11/12 mx-auto'>
-    <div className="navbar bg-base-100">
-    <div className="flex-1">
-      <Link to={`/`} className="btn btn-ghost text-xl">Service Review</Link>
-    </div>
+    <div className="navbar ">
+    <div className="flex-1 flex items-center gap-2 bg-black text-white">
+        {/* Logo */}<SiBackendless className="text-lime-300 text-5xl ml-16 "  />
+     
+        <Link to="/" className="btn btn-ghost text-2xl uppercase font-bold ">
+        Backend Forge
+        </Link>
+      </div>
     <div className="flex-none">
       {/* <ul className="menu menu-horizontal px-1">
         <li><a>Link</a></li>
@@ -24,6 +30,7 @@ export default function NavbarExtra() {
       </ul> */}
     </div>
   </div>
+    </div>
     </div>
     </>
   )

@@ -6,9 +6,13 @@ import { Outlet } from 'react-router-dom'
 export default function Authentication() {
   return (
     <div>
-      <header className='w-11/12 mx-auto z-50  top-0 fixed'>
-      <Navbar />
-      </header>
+       <div className='bg-black'>
+        <header className='w-11/12 mx-auto z-50  top-0 sticky    '>
+          {/* this is navbar */}
+         
+        <Navbar />
+          </header>
+        </div>
       <Outlet />
       <Footer />
     </div>

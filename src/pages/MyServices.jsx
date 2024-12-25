@@ -16,7 +16,7 @@ export default function MyServices() {
   }, [search]);
   const fetchMyservice = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/servicesOwn/${user?.email}?search=${search}`
+      `${import.meta.env.VITE_API_URL}/servicesOwn/${user?.email}?search=${search}`,{withCredentials:true}
     );
     setReview(data);
   };

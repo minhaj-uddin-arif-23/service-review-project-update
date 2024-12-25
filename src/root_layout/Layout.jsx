@@ -7,16 +7,19 @@ export default function Layout() {
   return (
     <div>
 
-    <header className='w-11/12 mx-auto z-50  top-0 fixed px-3 py-2 '>
+    <div className='bg-black'>
+    <header className='w-11/12 mx-auto z-50  top-0 sticky   '>
       {/* this is navbar */}
-      <Navbar />
+     
+    <Navbar />
       </header>
+    </div>
     <div className='w-11/12 mx-auto my-28'>
       {/* all components render or dynamically change this router */}
       <Outlet />
     </div>
   
-      <footer>
+      <footer className='mt-20'>
         {/* statically all components can be shared */}
         <Footer />
       </footer>

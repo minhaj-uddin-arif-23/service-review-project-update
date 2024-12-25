@@ -52,7 +52,11 @@ export default function AddService() {
 
   return (
     <div>
-  <div className="card bg-base-100 w-full max-w-full shrink-0 shadow-2xl">
+    <div>
+  <h1 className="mb-8 flex text-center justify-center text-5xl font-semibold text-green-800">Add Your Service</h1>
+  <hr className="mb-9 border-b-2  border-green-800 w-1/2 mx-auto mt-4" />
+</div>
+  <div className="card bg-green-50 w-full max-w-full shrink-0 shadow-2xl shadow-slate-400 border-2 border-gray-500">
     <form onSubmit={handleService} className="card-body">
       <div className="flex flex-wrap gap-4">
         {/* Left Side */}
@@ -183,7 +187,7 @@ export default function AddService() {
 
       {/* Submit Button */}
       <div className="form-control mt-6">
-        <button className="btn btn-primary w-full">Add Service</button>
+        <button className="btn bg-lime-300 font-bold w-full">Add Service</button>
       </div>
     </form>
   </div>
