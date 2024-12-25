@@ -7,16 +7,16 @@ import ReviewShowAll from './ReviewShowAll';
 export default function ALLReviews() {
   const {id} = useParams()
    const {user} = useAuth()
-    const [review,setReview] = useState([])
+    const [review,setReview] = useState()
     
   useEffect(()=>{
-    if(id && user?.email){
+  
       fetchAllReview()
-    }
-  },[id,user?.email])
+    
+  },[id])
   const fetchAllReview = async () => {
 
-    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/All-review-show/${user?.email}/${id}`)
+    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-reviews-show/${id}`)
     setReview(data)
     console.log(data)
   } 

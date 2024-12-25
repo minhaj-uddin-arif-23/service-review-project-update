@@ -4,13 +4,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../Hook/useAuth";
 import { useLocation } from "react-router-dom";
 import NavbarExtra from "../Components/NavbarExtra";
 export default function AddReview() {
   const { user } = useAuth();
   // const email = user?.email
+  const {id} = useParams()
   const [startDate, setStartDate] = useState(new Date());
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
@@ -34,6 +35,7 @@ export default function AddReview() {
         photo: user?.photoURL,
       },
       startDate,
+      service_id :id,
     };
     console.log(review);
     try {

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ALLReviews from "../Components/ALLReviews";
+import axios from "axios";
+import ReviewShowAll from "../Components/ReviewShowAll";
 export default function ServiceDetails({ service }) {
   const {
+    _id,
     image,
     title,
     name,
@@ -14,6 +17,22 @@ export default function ServiceDetails({ service }) {
     email,
   } = service || {};
 
+
+  
+    const [review,setReview] = useState([])
+      
+    useEffect(()=>{
+    
+        fetchAllReview()
+      
+    },[_id])
+    const fetchAllReview = async () => {
+  
+      const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-reviews-show/${_id}`)
+      setReview(data)
+      console.log(data)
+    } 
+    console.log('review found this',review)
 
 
 
@@ -40,7 +59,7 @@ export default function ServiceDetails({ service }) {
           </div>
           <p className="text-sm text-gray-400 italic mb-4">Contact: {email}</p>
           <div className="card-actions justify-end">
-            <Link to={`/review`}
+            <Link to={`/review/${_id}`}
             state={{title}}
             className="btn bg-lime-400 text-black">
               Add Review
@@ -53,6 +72,17 @@ export default function ServiceDetails({ service }) {
     
     <div>
     </div>
+
+
+    {/* show review this */}
+        <div className=' gap-5 space-y-10'>
+            
+              {
+                
+                 review?.map(data => <ReviewShowAll key={data._id} data={data}/>) 
+                
+              }
+        </div>
    
    </>
   );

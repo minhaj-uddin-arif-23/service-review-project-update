@@ -69,7 +69,7 @@ import UpdateService from "../pages/UpdateService";
     element:<Error />
   },
   {
-    path:'/review',
+    path:'/review/:id',
     element:<AddReview />
   },
   {
