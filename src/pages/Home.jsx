@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import HomeCard from './HomeCard'
 import FramerMotion from '../Components/FramerMotion'
 import Lotie from '../Components/Lotie'
+import Countup from './Countup'
 // import Pagination from '../Components/pagination'
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <FramerMotion />
      <Lotie />
       <HomeCard />
+      <Countup />
       {/* faq */}
     </div>
   )
