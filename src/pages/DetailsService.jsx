@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import ServiceDetails from './ServiceDetails'
 import Navbar from '../Components/Navbar'
-import ALLReviews from '../Components/ALLReviews'
+// import ALLReviews from '../Components/ALLReviews'
 
 export default function DetailsService() {
   const data = useLoaderData()
@@ -11,7 +11,7 @@ export default function DetailsService() {
 
   
 // console.log(data)
-  const {image, title, name, website, desc, category,startDate, price, email,_id} = data || {}
+  // const {image, title, name, website, desc, category,startDate, price, email,_id} = data || {}
 
   return (
   <>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function Service() {
 
@@ -53,6 +54,9 @@ console.log(filter)
   return (
     <>
       <div>
+        <Helmet>
+          <title>Backend frog services</title>
+        </Helmet>
         <h1 className="text-3xl font-semibold text-lime-700 my-4">
           Best Services in Deals
         </h1>{" "}

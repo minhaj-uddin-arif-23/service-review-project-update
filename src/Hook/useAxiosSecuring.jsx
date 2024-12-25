@@ -10,7 +10,7 @@ const axiosSecuring = axios.create({
 
 export const useAxiosSecuring = () => {
   const navigate = useNavigate()
-  const {signOut} = useAuth()
+  const {signout} = useAuth()
   useEffect(() =>{
     axiosSecuring.interceptors.response.use(
       res => {
@@ -19,15 +19,15 @@ export const useAxiosSecuring = () => {
     async error => {
       console.log('error cauth from our very own axios interceptors -->',error.response)
   
-    if(error.response.status === 401 || error.response.status === 403 ){
+    if(error?.response?.status === 401 || error?.response?.status === 403 ){
         // logout
         // navigat
-        signOut()
+        signout()
         navigate('/auth/signIn')
     }
   }
   )
-  },[signOut,navigate])
+  },[signout,navigate])
   return axiosSecuring
     
 }

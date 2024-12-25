@@ -4,6 +4,8 @@ import Lottie from "lottie-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Shared_Context/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
+import { FcGoogle } from "react-icons/fc";
 export default function Login() {
 
   const navigate = useNavigate()
@@ -37,59 +39,81 @@ export default function Login() {
   }
 
   return (
-    <div className="hero bg-base-200 min-h-screen my-10">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <Lottie animationData={login}></Lottie>
+    <div className="hero bg-base-200 min-h-screen py-10">
+    <Helmet>
+      <title>Login</title>
+    </Helmet>
+    <div className="hero-content flex-col lg:flex-row-reverse items-center">
+      {/* Lottie Animation */}
+      <div className="text-center lg:text-left w-full lg:w-1/2 flex justify-center">
+        <Lottie animationData={login} className="max-w-xs lg:max-w-sm" />
+      </div>
+  
+      {/* Login Form */}
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-8">
+        {/* Title */}
+        <h2 className="text-4xl font-semibold text-center mb-4">Sign In</h2>
+  
+        {/* Social Login */}
+        <p className="text-center text-gray-500 mb-4">Sign in with a social account</p>
+        <div className="form-control mb-6">
+          <button
+            onClick={handleGoogle}
+            className="border-2 border-gray-300 text-2xl rounded-full flex items-center justify-center py-2 px-4 hover:bg-gray-100 transition"
+          >
+            <FcGoogle className="text-3xl" />
+            <span className="ml-2 text-gray-600">Sign in with Google</span>
+          </button>
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <div className="ml-24 my-4 text-4xl text-white font-semibold">
-            <p>Sign in</p>
-          </div>
-
-          <div>
-            <p className="ml-16 text-gray-400">Sign in with social account</p>
-          </div>
-          <div className="form-control mt-6">
-            <button onClick={handleGoogle} className="btn btn-outline">Google</button>
-          </div>
-          <form onSubmit={handleSignIn}
-           className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
+  
+        {/* Divider */}
+        <div className="divider">OR</div>
+  
+        {/* Form */}
+        <form onSubmit={handleSignIn}>
+          {/* Email Field */}
+          <div className="form-control mb-4">
+            <label className="label">
+              <span className="label-text text-lg">Email</span>
+            </label>
+            <input
               name="email"
-                type="email"
-                placeholder="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
+              type="email"
+              placeholder="Enter your email"
+              className="input input-bordered"
+              required
+            />
+          </div>
+  
+          {/* Password Field */}
+          <div className="form-control mb-4">
+            <label className="label">
+              <span className="label-text text-lg">Password</span>
+            </label>
+            <input
               name="password"
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn bg-lime-400 text-black">Login</button>
-            </div>
-          </form>
-        </div>
+              type="password"
+              placeholder="Enter your password"
+              className="input input-bordered"
+              required
+            />
+            <label className="label">
+              <a href="#" className="label-text-alt link link-hover text-sm">
+                Forgot password?
+              </a>
+            </label>
+          </div>
+  
+          {/* Login Button */}
+          <div className="form-control">
+            <button className="btn bg-lime-400 text-black font-medium w-full">
+              Login
+            </button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
+  
   );
 }

@@ -14,72 +14,96 @@ import MyServices from "../pages/MyServices";
 import UpdateReview from "../pages/UpdateReview";
 import Protected_Router from "./Protected_Router";
 import UpdateService from "../pages/UpdateService";
+import Blog from "../Components/Blog";
+import MeetOurPartNers from "../Components/MeetOurPartNers";
 
-
-
- export const Router = createBrowserRouter([
+export const Router = createBrowserRouter([
   {
-    path:'/',
-    element:<Layout />,
-    children:[
+    path: "/",
+    element: <Layout />,
+    children: [
       {
-        path:'/',
-        element:<Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path:'service',
-        element:<Service />,
-        loader:() => fetch(`${import.meta.env.VITE_API_URL}/serviceCount`)
+        path: "service",
+        element: <Service />,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/serviceCount`),
       },
       {
-        path:'addService',
-        element:<AddService />
+        path:'/meetOurPartners',
+        element:<MeetOurPartNers />
       },
       {
-        path:'myReview',
-        element:<Protected_Router><MyReviews /></Protected_Router>
+        path: "blog",
+        element: <Blog />,
       },
       {
-        path:'myService',
-        element:<Protected_Router><MyServices /></Protected_Router>
-      }
-    ]
-  },
-  {
-    path:'/auth',
-    element:<Authentication />,
-    children:[
-      {
-        path:'/auth/signIn',
-        element:<Login />
+        path: "addService",
+        element: (
+          <Protected_Router>
+            <AddService />
+          </Protected_Router>
+        ),
       },
       {
-        path:'/auth/signUp',
-        element:<Register />
-      }
-    ]
+        path: "myReview",
+        element: (
+          <Protected_Router>
+            <MyReviews />
+          </Protected_Router>
+        ),
+      },
+      {
+        path: "myService",
+        element: (
+          <Protected_Router>
+            <MyServices />
+          </Protected_Router>
+        ),
+      },
+    ],
   },
   {
-    path:'/details/:id',
-    element:<DetailsService />,
-    loader:({params}) => fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`)
+    path: "/auth",
+    element: <Authentication />,
+    children: [
+      {
+        path: "/auth/signIn",
+        element: <Login />,
+      },
+      {
+        path: "/auth/signUp",
+        element: <Register />,
+      },
+    ],
   },
   {
-    path:'*',
-    element:<Error />
+    path: "/details/:id",
+    element: (
+      <Protected_Router>
+        <DetailsService />
+      </Protected_Router>
+    ),
+    loader: ({ params }) =>
+      fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`),
   },
   {
-    path:'/review/:id',
-    element:<AddReview />
+    path: "*",
+    element: <Error />,
   },
   {
-    path:'/update/:id',
-    element:<UpdateReview />
+    path: "/review/:id",
+    element: <AddReview />,
+  },
+  {
+    path: "/update/:id",
+    element: <UpdateReview />,
   },
   // service update
   {
-    path:'/updateService/:id',
-    element:<UpdateService />
+    path: "/updateService/:id",
+    element: <UpdateService />,
   },
-
-])
+]);

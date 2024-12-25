@@ -20,6 +20,16 @@ export default function Navbar() {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/meetOurPartners" className="font-semibold ">
+          Meet Our Partners
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/blog" className="font-semibold ">
+          Blog
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/auth/signIn" className="font-semibold ">
           Login
         </NavLink>

@@ -11,6 +11,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Shared_Context/AuthProvider";
 import { auth } from "../firebase/firebase.init";
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet";
 
 export default function Register() {
   const { google, createUser,  updateUserInfo } =
@@ -95,135 +96,130 @@ export default function Register() {
   //sign google and github
 
   return (
-    <div className=" hero bg-base-200 min-h-screen my-10">
-      {/* <Helmet>
-        <title>Register</title>
-        
-      </Helmet> */}
-    <div className="flex hero-content flex-col lg:flex-row-reverse">
-    <div className="w-96 hero-content flex-col lg:flex-row-reverse">
-        <Lottie animationData={register} ></Lottie>
+    <div className="hero bg-base-200 min-h-screen py-10">
+    <Helmet>
+      <title>Register</title>
+    </Helmet>
+    <div className="flex flex-col lg:flex-row-reverse items-center justify-center">
+      {/* Lottie Animation */}
+      <div className="w-full lg:w-1/2 flex justify-center">
+        <Lottie animationData={register} className="max-w-xs lg:max-w-sm" />
       </div>
-      {/* <h1 className="text-white">Welcome to</h1> */}
-      <div className=" ">
-        <div className="">
-         
-        <div className="">
-        <div>
-              <h1 className="font-semibold text-4xl text-center md:text-left ml-4 md:ml-14 lg:ml-36">
-                Register
-              </h1>
-            </div>
-            <div className="form-control mt-6 ml-36">
-            <button 
-                onClick={handleGoogleLogin}
-                className="btn rounded-full w-20 text-4xl"
-              >
-                <FcGoogle />
-              </button>
-            </div>
-              
-            </div>
-         
-          <form onSubmit={handleRegister} className="card-body">
-         
-
-            <section className="flex flex-col md:flex-row gap-4">
-              <section className="w-full">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-lg">Name</span>
-                  </label>
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="username"
-                    className="input input-bordered "
-                    required
-                  />
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-lg">Photo</span>
-                  </label>
-                  <input
-                    name="photo"
-                    type="url"
-                    placeholder="Photo url"
-                    className="input input-bordered "
-                    required
-                  />
-                </div>
-              </section>
-
-              <section className="w-full">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-lg">Email</span>
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    className="input input-bordered "
-                    required
-                  />
-                </div>
-                <div className="form-control relative">
-                  <label className="label">
-                    <span className="label-text text-lg">Password</span>
-                  </label>
-                  <input
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="password"
-                    className="input input-bordered "
-                    required
-                  />
-                </div>
-              </section>
-            </section>
-
-            <div
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-[423px] right-[47%] cursor-pointer"
+  
+      {/* Registration Form */}
+      <div className="w-full lg:w-1/2 px-6">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          {/* Title */}
+          <h1 className="font-semibold text-4xl text-center text-gray-800 mb-4">
+            Register
+          </h1>
+  
+          {/* Google Login Button */}
+          <div className="flex justify-center mb-6">
+            <button
+              onClick={handleGoogleLogin}
+              className="border-2 border-gray-300 text-2xl rounded-full flex items-center justify-center px-4 py-2 hover:bg-gray-100 transition"
             >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </div>
-
-            <div className="form-control">
-              <label className="label cursor-pointer justify-start gap-3">
+              <FcGoogle className="text-3xl" />
+              <span className="ml-2 text-gray-600">Sign in with Google</span>
+            </button>
+          </div>
+  
+          {/* Registration Form */}
+          <form onSubmit={handleRegister}>
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name and Photo */}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-lg">Name</span>
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Username"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-lg">Photo</span>
+                </label>
+                <input
+                  name="photo"
+                  type="url"
+                  placeholder="Photo URL"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+  
+              {/* Email and Password */}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-lg">Email</span>
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control relative">
+                <label className="label">
+                  <span className="label-text text-lg">Password</span>
+                </label>
+                <input
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="input input-bordered"
+                  required
+                />
+                <div
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute top-2/3 right-3 transform -translate-y-1/2 cursor-pointer"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </div>
+              </div>
+            </section>
+  
+            {/* Terms and Conditions */}
+            <div className="form-control mt-6">
+              <label className="label cursor-pointer flex items-center gap-2">
                 <input type="checkbox" name="checked" className="checkbox" />
                 <span className="label-text">Accept Terms & Conditions</span>
               </label>
             </div>
-
-            <div className="form-control mt-6">
-              <button className="btn bg-lime-400 border-2 border-gray-300 font-medium text-lg w-full  text-black">
+  
+            {/* Submit Button */}
+            <div className="form-control mt-4">
+              <button className="btn btn-success w-full">
                 Sign Up
               </button>
             </div>
-
-            {errorMsg && <p className="text-red-400">{errorMsg}</p>}
-
-            <label className="label flex justify-center">
-              <p>Already have an account?</p>
-              <div>
-                <Link
-                  to={`/auth/login`}
-                  className="text-md font-semibold btn btn-outline bg-lime-400 text-black"
-                >
-                  Sign In
-                </Link>
-              </div>
-            </label>
-
-            <p className="mt-2 text-center">Or sign in with</p>
-          
+  
+            {/* Error Message */}
+            {errorMsg && <p className="text-red-500 mt-2 text-center">{errorMsg}</p>}
+  
+            {/* Redirect to Login */}
+            <div className="mt-6 text-center">
+              <p className="mb-2">Already have an account?</p>
+              <Link
+                to={`/auth/login`}
+                className="btn btn-outline btn-primary w-1/2"
+              >
+                Sign In
+              </Link>
+            </div>
           </form>
         </div>
       </div>
     </div>
-    </div>
+  </div>
+  
   );
 }

@@ -7,7 +7,7 @@ import { SiBackendless } from "react-icons/si";
 export default function Footer() {
   return (
     <>
-      <footer className="footer bg-black/80 text-white p-10">
+      <footer className="footer bg-black text-white p-10">
         <aside>
           <SiBackendless className="text-lime-600 text-4xl" />
           <p className="font-bold text-md">
@@ -47,10 +47,10 @@ export default function Footer() {
             <div className="join">
               <input
                 type="text"
-                placeholder="username@site.com"
+                placeholder="Send me email get Update news"
                 className="input input-bordered join-item"
               />
-              <button className="btn btn-accent join-item">Subscribe</button>
+              <button className="btn bg-lime-400 join-item">Subscribe</button>
             </div>
           </fieldset>
           <div className="flex text-xl gap-3 my-2">
