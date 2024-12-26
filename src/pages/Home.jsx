@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import HomeCard from './HomeCard'
-import FramerMotion from '../Components/FramerMotion'
 import Lotie from '../Components/Lotie'
 import Countup from './Countup'
 import Accordian from '../Components/Accordian'
@@ -21,7 +20,7 @@ export default function Home() {
       {/* <Pagination /> */}
       {/* carousal */}
       <Slider />
-      <FramerMotion />
+      
      <Lotie />
       <HomeCard />
       {/* <Sliders /> */}

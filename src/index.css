@@ -10,19 +10,27 @@ html{
   font-family: "Inter", serif;
 }
 .pagination button{
-  background-color: rgb(244, 4, 4);
-  padding: 10px 10px 10px 10px;
-  color: rgb(255, 255, 255);
-  width: 40px;
-   /* gap: 30px; */
+  background-color: rgb(255, 255, 255);
+  padding: 13px 10px 10px 10px;
+  color: rgb(0, 0, 0);
+  width: 54px;
+   gap: 30px;
    height: 60px;
    margin-top: 20px;
-   border-radius: 10px;
+   border-radius: 40px;
    text-align: center;
+   border:2px solid rgb(133, 110, 110);
+   
 }
 .pagination .selectItem{
-  background-color: rgb(103, 207, 23);
-  color: black;
+  background-color: rgb(91, 190, 15);
+  color: rgb(255, 254, 254);
+}
+#one{
+  margin-top: 25px;
+  border:2px solid rgb(133, 110, 110);
+  border-radius: 30px;
+  padding: 15px 20px 17px 10px;
 }
 /* active route */
 /* light mode dark mode */

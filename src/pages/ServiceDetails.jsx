@@ -47,7 +47,7 @@ export default function ServiceDetails({ service }) {
       <title> Backend Forge Details  </title>
     </Helmet>
    </div>
-   <div className="card bg-gray-50 shadow-lg rounded-xl overflow-hidden border border-gray-200 my-10 mx-auto md:w-4/5 lg:w-3/5">
+   <div className="mt-36 card bg-gray-50 shadow-lg rounded-xl overflow-hidden border border-gray-200 my-10 mx-auto md:w-4/5 lg:w-3/5">
   <div className="flex flex-col md:flex-row">
     {/* Image Section */}
     <figure className="bg-gray-100 w-full md:w-2/5">

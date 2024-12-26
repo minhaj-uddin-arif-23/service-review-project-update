@@ -49,7 +49,7 @@ export default function AddReview() {
 
   return (
     <>
-    <div className="">
+    <div className="w-full mx-auto z-50 top-0 fixed">
         <NavbarExtra />
     </div>
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-lime-50 via-yellow-50 to-pink-100">

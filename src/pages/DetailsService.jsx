@@ -15,12 +15,12 @@ export default function DetailsService() {
 
   return (
   <>
-    <div className=''>
+    <div className='w-full mx-auto z-50 top-0 fixed'>
      <div className=''>
      <Navbar />
      </div>
     </div>
-  <div>
+  <div className=''>
       
       {
        service ? < ServiceDetails key={service._id} service={service}

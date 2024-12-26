@@ -67,8 +67,11 @@ export default function MyReviews() {
   return (
     <>
         <div className=' gap-5 space-y-6'>
-          {/* <h1>Total Review is: {review.length}</h1> */}
+       <div>
+           {/* <h1>Total Review is: {review.length}</h1> */}
+       </div>
           <h1 className='text-xl italic text-green-600 font-semibold my-10'>{user?.displayName} <span className='text-black'>You can review this</span></h1>
+          {/* <Link   >Back To review Service</Link> */}
       {
         review?.map(data => (<>
          <div className="card   shadow-md p-4 max-w-md mx-auto">

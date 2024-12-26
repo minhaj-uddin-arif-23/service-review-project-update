@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+import { GrLinkPrevious } from "react-icons/gr";
+import { GrLinkNext } from "react-icons/gr";
 export default function Service() {
 
   // filter
@@ -72,16 +73,21 @@ console.log(filter)
         <option>IT</option>
         <option>Education</option>
       </select>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 ml-9 md:ml-0 lg:ml-0 my-5">
         {service?.map((data) => (
           <ServiceCard key={data._id} data={data} />
         ))}
       </div>
       {/* pagination implementation */}
       <div>
-        <div className="pagination my-10 flex items-center justify-center ">
+        <div className="gap-6 pagination my-10 flex items-center justify-center ">
           {/* <p>Current page: {currentPage}</p> */}
-          <button onClick={handlePrev}>Prev</button>
+        
+          <button 
+          className="flex items-center justify-center"
+          onClick={handlePrev}>
+          <p> <GrLinkPrevious /></p>
+            </button>
           {pages.map((number) => (
             <button
               onClick={() => setCurrentPage(number)}
@@ -91,8 +97,10 @@ console.log(filter)
               {number}
             </button>
           ))}
-          <button onClick={handleNext}>Next</button>
-          <select name="" value={itemperPage} onChange={handleChange} id="">
+          <button
+          className="flex items-center justify-center "
+          onClick={handleNext}><GrLinkNext /> </button>
+          <select name="" value={itemperPage} onChange={handleChange} id="one">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>

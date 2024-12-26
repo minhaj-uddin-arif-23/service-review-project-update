@@ -7,8 +7,8 @@ export default function Layout() {
   return (
     <div>
 
-    <div className='bg-black'>
-    <header className='w-11/12 mx-auto z-50  top-0 sticky   '>
+    <div className=' w-full  mx-auto bg-black'>
+    <header className='w-full mx-auto z-50  top-0  fixed  '>
       {/* this is navbar */}
      
     <Navbar />

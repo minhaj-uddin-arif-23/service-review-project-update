@@ -22,11 +22,11 @@ export default function Lotie() {
             repeat: Infinity, // Loop the animation
             repeatType: "reverse", // Reverse the animation
           }}
-          className="text-5xl font-bold"> Service Available in today!</motion.h1>
+          className="text-5xl font-bold">Today's Backend Service!</motion.h1>
         <p className="py-6 text-gray-600">
      
 
-Backend Forge provides cutting-edge backend development services today, offering businesses scalable, secure, and efficient solutions that drive performance, enhance system integration, and help businesses stay competitive in the evolving tech landscape
+Backend Forge provides cutting-edge backend development services today, offering businesses scalable, secure, and efficient solutions that drive performance.
         </p>
         <button className="btn bg-lime-400 ">See More</button>
       </div>
