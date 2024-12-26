@@ -23,7 +23,7 @@ const BlogCard = () => {
     <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-bold">Latest Service Reviews</h2>
-        <Button className="ml-auto text-red-600">See More</Button>
+        <Button className="ml-auto ">See More</Button>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'>
         {blogPosts.map((post, index) => (
@@ -34,7 +34,7 @@ const BlogCard = () => {
             <p className="font-normal text-gray-700 dark:text-gray-400">
               {post.description}
             </p>
-            <Button className='text-sky-700'>
+            <Button className=''>
               Read more
               <svg
                 className="-mr-1 ml-2 h-4 w-4 text-sky-700"

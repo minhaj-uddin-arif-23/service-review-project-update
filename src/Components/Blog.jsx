@@ -3,9 +3,14 @@ import image from '../assets/education.jpg'
 import hellow from '../assets/hello.jpeg'
 import {easeOut, motion} from "framer-motion";
 import BlogCard from "./BlogCard";
+import { Helmet } from "react-helmet";
 export default function Blog() {
   return (
       <div>
+        <Helmet>
+          <title>Backend Forge | Blog </title>
+        </Helmet>
+
           <div className="hero bg-base-100 min-h-[60vh] my-24">
       <div className="hero-content flex-col lg:flex-row-reverse">
        <div>
