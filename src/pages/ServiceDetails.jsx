@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import ALLReviews from "../Components/ALLReviews";
+import {format} from "date-fns"
 import axios from "axios";
 import ReviewShowAll from "../Components/ReviewShowAll";
 import { Helmet } from "react-helmet";
@@ -78,7 +79,8 @@ export default function ServiceDetails({ service }) {
       </p>
       {/* date */}
       <p> 
-            {startDate}
+            {/* {startDate? format(new Date(startDate),"do MMMM YYYY") : "N/A"} */}
+            {format(new Date(startDate), "do MMMM yyyy")}
       </p>
 
       {/* Review Button */}

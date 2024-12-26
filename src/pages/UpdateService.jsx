@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../Hook/useAuth'
 import toast from 'react-hot-toast'
+import { useAxiosSecuring } from '../Hook/useAxiosSecuring'
 
 export default function UpdateService() {
+  const axiosSecuring = useAxiosSecuring()
   const {user} = useAuth()
   const {id} = useParams()
   const [update,setUpdate] = useState({})
@@ -15,7 +17,7 @@ export default function UpdateService() {
   },[id])
 
   const fetchServiceData = async () => {
-    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/get-service-data/${id}`)
+    const {data} = await axiosSecuring.get(`/get-service-data/${id}`)
     console.log(data)
     setUpdate(data)
   }
@@ -40,7 +42,7 @@ export default function UpdateService() {
     console.log(UpdateService);
 
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/update-service/${id}`, UpdateService);
+      await axiosSecuring.put(`/update-service/${id}`, UpdateService);
       toast.success("Service Updated successfully");
       navigate("/myService");
     } catch (err) {
@@ -107,6 +109,7 @@ export default function UpdateService() {
               <option disabled selected>
                 Category
               </option>
+              <option>Backend Technology</option>
               <option>Food</option>
               <option>Transport</option>
               <option>IT</option>

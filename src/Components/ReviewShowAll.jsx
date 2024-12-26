@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../Hook/useAuth";
+import { format } from "date-fns";
 
 export default function ReviewShowAll({ data }) {
+     const [startDate, setStartDate] = useState(new Date());
   const {user} = useAuth()
+
+useEffect(()=>{
+  if(data?.startDate){
+    setStartDate(new Date(data.startDate));
+  }
+},[data])
+
   console.log(data)
   return (
     <div className="card   shadow-md p-4 max-w-md mx-auto">
@@ -21,7 +30,8 @@ export default function ReviewShowAll({ data }) {
       <p className="text-lg font-semibold mb-2">{data.title}</p>
       <p>{data.text}</p>
       <p className="text-sm text-gray-500 mb-4">
-        Date of experience: December 22, 2024
+          {format(new Date(startDate), "do MMMM yyyy")}
+          {/* {startDate ? format(startDate,)} */}
       </p>
     </div>
   );

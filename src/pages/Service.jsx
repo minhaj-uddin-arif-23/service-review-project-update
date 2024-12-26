@@ -6,10 +6,9 @@ import { Helmet } from "react-helmet";
 import { GrLinkPrevious } from "react-icons/gr";
 import { GrLinkNext } from "react-icons/gr";
 export default function Service() {
-
   // filter
-  const [filter,setFilter] = useState('')
-  
+  const [filter, setFilter] = useState("");
+
   // pagination
   const [currentPage, setCurrentPage] = useState(0);
   // const [count,setCount] = useState()
@@ -30,7 +29,7 @@ export default function Service() {
   const [service, setService] = useState([]);
   useEffect(() => {
     fetchAllService();
-  }, [currentPage, itemperPage,filter]);
+  }, [currentPage, itemperPage, filter]);
   const fetchAllService = async () => {
     const { data } = await axios.get(
       `${
@@ -39,7 +38,7 @@ export default function Service() {
     );
     setService(data);
   };
-console.log(filter)
+  // console.log(filter)
   // handle prev and next
   const handlePrev = () => {
     if (currentPage > 0) {
@@ -62,17 +61,20 @@ console.log(filter)
           Best Services in Deals
         </h1>{" "}
       </div>
-      <select 
-      onChange={(e)=> setFilter(e.target.value)}
-      className="select select-info w-full max-w-xs">
+      <select
+        onChange={(e) => setFilter(e.target.value)}
+        className="select select-info w-full max-w-xs"
+      >
         <option disabled selected>
           Category
         </option>
-        <option>Chemicals</option>
+        <option>Backend Technology</option>
+        {/* <option>Chemicals</option> */}
         <option>Transport</option>
         <option>IT</option>
         <option>Education</option>
-       
+        <option>Cultural Goods</option>
+        <option>Chemicals</option>
       </select>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 ml-9 md:ml-0 lg:ml-0 my-5">
         {service?.map((data) => (
@@ -83,12 +85,16 @@ console.log(filter)
       <div>
         <div className="gap-6 pagination my-10 flex items-center justify-center ">
           {/* <p>Current page: {currentPage}</p> */}
-        
-          <button 
-          className="flex items-center justify-center"
-          onClick={handlePrev}>
-          <p> <GrLinkPrevious /></p>
-            </button>
+
+          <button
+            className="flex items-center justify-center"
+            onClick={handlePrev}
+          >
+            <p>
+              {" "}
+              <GrLinkPrevious />
+            </p>
+          </button>
           {pages.map((number) => (
             <button
               onClick={() => setCurrentPage(number)}
@@ -99,8 +105,11 @@ console.log(filter)
             </button>
           ))}
           <button
-          className="flex items-center justify-center "
-          onClick={handleNext}><GrLinkNext /> </button>
+            className="flex items-center justify-center "
+            onClick={handleNext}
+          >
+            <GrLinkNext />{" "}
+          </button>
           <select name="" value={itemperPage} onChange={handleChange} id="one">
             <option value="5">5</option>
             <option value="10">10</option>

@@ -8,10 +8,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../Hook/useAuth";
 import { useLocation } from "react-router-dom";
 import NavbarExtra from "../Components/NavbarExtra";
+import { useAxiosSecuring } from "../Hook/useAxiosSecuring";
 export default function UpdateReview() {
   const { user } = useAuth();
   // const email = user?.email
-  
+      const axiosSecuring = useAxiosSecuring()
   const [startDate, setStartDate] = useState(new Date());
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
@@ -26,8 +27,9 @@ const {id} = useParams()
   },[])
   const fetchReview = async () => {
 
-    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/update/${id}`)
+    const {data} = await axiosSecuring.get(`/update/${id}`)
     setUpdate(data)
+    setStartDate(new Date(data.startDate))
     // console.log(data)
   } 
   // console.log(update)
@@ -44,7 +46,7 @@ const {id} = useParams()
     };
     console.log(review);
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/update-review-add/${id}`, review);
+      await axiosSecuring.put(`/update-review-add/${id}`, review);
       toast.success("Your Review is updated!!");
       navigate("/myReview");
     } catch (err) {

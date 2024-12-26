@@ -49,7 +49,7 @@ export default function Slider() {
           <SwiperSlide>
             <Slidess
               image={img3}
-              text='Everything is fine'
+              text='Find You Best services for you !!'
             />
           </SwiperSlide>
         </Swiper>

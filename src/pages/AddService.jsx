@@ -155,8 +155,8 @@ export default function AddService() {
           <option>Cultural Goods</option>
           <option>Bars & Cafes</option>
           <option>Vegetarian & Diet</option>
-          <option>Jewelry & Watches</option>
-          <option>Computers & Phones</option>
+          <option>Backend Technology</option>
+          {/* <option>Computers & Phones</option> */}
         </select>
       </div>
 
