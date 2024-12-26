@@ -18,7 +18,9 @@ useEffect(()=>{
       <div className="flex items-center gap-4 mb-4">
         <div className="avatar">
           <div className="w-12 rounded-full bg-neutral-focus text-neutral-content">
-            <img src={`${data?.user?.photo}`} alt="" />
+            <img 
+               referrerPolicy="no-referrer"
+            src={`${data?.user?.photo}`} alt="" />
           </div>
         </div>
         <div>

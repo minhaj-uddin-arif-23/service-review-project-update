@@ -120,6 +120,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           className=" rounded-full py-2 border-2 px-2 text-lg  text-white"
         > 
+   
           <IoIosArrowDropdownCircle />
         </button>
         {menuOpen && (

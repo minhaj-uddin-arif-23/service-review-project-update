@@ -57,7 +57,7 @@ export default function Footer() {
               <input
                 type="text"
                 placeholder="Send me email get Update news"
-                className="input input-bordered join-item"
+                className="input input-bordered join-item  w-40 lg:w-44"
               />
               <button className="btn bg-lime-400 join-item">Subscribe</button>
             </div>
