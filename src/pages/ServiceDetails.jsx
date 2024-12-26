@@ -35,9 +35,9 @@ export default function ServiceDetails({ service }) {
   
       const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/all-reviews-show/${_id}`)
       setReview(data)
-      console.log(data)
+    
     } 
-    console.log('review found this',review)
+    
 
 
 

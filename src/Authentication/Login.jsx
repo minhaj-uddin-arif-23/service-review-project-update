@@ -28,7 +28,7 @@ export default function Login() {
     const form = e.target;
     const email= form.email.value
     const password= form.password.value
-    // console.log({email,password})
+
     try{
       await signIn(email,password)
       toast.success("SignIn successfullt")
@@ -36,7 +36,7 @@ export default function Login() {
     }catch(err){
       toast.error(err?.message)
     }
-  }
+  }  
 
   return (
     <div className="hero bg-base-200 min-h-screen py-10">
@@ -44,17 +44,16 @@ export default function Login() {
       <title>Login</title>
     </Helmet>
     <div className="hero-content flex-col lg:flex-row-reverse items-center">
-      {/* Lottie Animation */}
+   
       <div className="text-center lg:text-left w-full lg:w-1/2 flex justify-center">
         <Lottie animationData={login} className="max-w-xs lg:max-w-sm" />
       </div>
   
-      {/* Login Form */}
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-8">
-        {/* Title */}
+      
         <h2 className="text-4xl font-semibold text-center mb-4">Sign In</h2>
   
-        {/* Social Login */}
+        
         <p className="text-center text-gray-500 mb-4">Sign in with a social account</p>
         <div className="form-control mb-6">
           <button

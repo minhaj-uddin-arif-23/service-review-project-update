@@ -32,7 +32,6 @@ export default function Register() {
     const Password = e.target.password.value;
     const Photo = e.target.photo.value;
     const acceptTearm = e.target.checked.checked;
-    console.log(Name, Email, Password, Photo, acceptTearm);
 
     setErrorMsg("");
     setSuccess(false);
@@ -54,13 +53,13 @@ export default function Register() {
     // create user, email and password
     try{
       const result = await createUser(Email,Password)
-      console.log(result)
+    
       await updateUserInfo(Name,Photo)
       setUser({...result.user,photoURL:Photo,displayName:Name})
       toast.success("Registration successfully");
       navigate('/');
     }catch(err){
-      console.log(err)
+      
       toast.error(err?.message)
     }
   };

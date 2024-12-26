@@ -17,14 +17,14 @@ export default function Service() {
   const totalService = Number(count) || 0;
   const numberOfPages = Math.ceil(totalService / itemperPage);
   const pages = [...Array(numberOfPages).keys()];
-  // console.log(pages);
+  
 
   const handleChange = (e) => {
-    // console.log(e.target.value);
+   
     const val = parseInt(e.target.value);
     setItemperPage(val);
     setCurrentPage(0);
-    // console.log(val);
+   
   };
   const [service, setService] = useState([]);
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Service() {
     );
     setService(data);
   };
-  // console.log(filter)
+ 
   // handle prev and next
   const handlePrev = () => {
     if (currentPage > 0) {

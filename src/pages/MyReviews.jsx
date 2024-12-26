@@ -20,7 +20,7 @@ export default function MyReviews() {
   const fetchReview = async () => {
     const { data } = await axiosSecuring.get(`/reviewShow/${user?.email}`);
     setReview(data);
-    // console.log(data)
+   
   };
   const handleDelete = async (id) => {
     try {

@@ -16,7 +16,7 @@ export default function MyReviews() {
 
     const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/reviewShow/${user?.email}`)
     setReview(data)
-    // console.log(data)
+  
   } 
   const handleDelete = async (id) => {
     try {

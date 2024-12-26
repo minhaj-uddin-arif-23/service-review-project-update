@@ -12,7 +12,7 @@ useEffect(()=>{
   }
 },[data])
 
-  console.log(data)
+
   return (
     <div className="card   shadow-md p-4 max-w-md mx-auto">
       <div className="flex items-center gap-4 mb-4">

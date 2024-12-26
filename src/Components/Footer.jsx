@@ -16,27 +16,36 @@ export default function Footer() {
           </p>
         </aside>
         <nav>
-          <h6 className="uppercase text-lg font-semibold">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <h6 className="uppercase text-lg font-semibold  ">Adress</h6>
+          <a className="link link-hover mt-3">Bangladesh Office</a>
+          <p className="link link-hover my-3 ">A-15 Chattogram-1233 <br></br>,Bangladesh</p>
+          <a className="link link-hover">Email</a>
+          <a className="link link-hover my-3">uarif1933@gmail.com</a>
+          <a className="link link-hover my-3">arif62901@gmail.com</a>
         </nav>
         
         <nav>
-          <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <h6 className="uppercase text-lg font-semibold  ">Services</h6>
+          <a className="link link-hover mt-3">Branding</a>
+          <a className="link link-hover my-3 ">Design</a>
+          <a className="link link-hover">Marketing</a>
+          <a className="link link-hover my-3">Advertisement</a>
+        </nav>
+        
+        <nav>
+          <h6 className="uppercase text-lg font-semibold">Company</h6>
+          <a className="link link-hover my-3 ">About us</a>
+          <a className="link link-hover my-3 ">Contact</a>
           <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <a className="link link-hover my-3 ">Press kit</a>
           
         </nav>
         
         <nav>
-          <h6 className="footer-title">BUISNESS</h6>
-          <a className="link link-hover">Products</a>
-          <a className="link link-hover">Buisness idea</a>
-          <a className="link link-hover">Tech Buisness</a>
+          <h6 className="uppercase text-lg font-semibold">BUISNESS</h6>
+          <a className="link link-hover my-3 ">Products</a>
+          <a className="link link-hover my-3 " >Buisness idea</a>
+          <a className="link link-hover my-3 ">Tech Buisness</a>
         </nav>
         <form>
           <h6 className="footer-title">Newsletter</h6>
@@ -54,10 +63,12 @@ export default function Footer() {
             </div>
           </fieldset>
           <div className="flex text-xl gap-3 my-2">
-            <FaLinkedinIn className="text-blue-500" />
-            <FaMediumM />
-            <BsYoutube className="" />
-            <FaGithub />
+            
+            <a href="https://www.linkedin.com/in/minhaj-uddin-arif-4321b0258/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className="text-blue-500" /></a>
+             <a href="https://medium.com/@arifk62901" target="_blank" rel="noopener noreferrer"><FaMediumM /></a>
+            <a target="_blank" href="https://youtube.com/@arifuddinm?si=wkqnbqutknbHqY_o"> <BsYoutube className="text-red-400" /></a>
+           <a href="https://github.com/minhaj-uddin-arif-23" target="_blank" rel="noopener noreferrer"> <FaGithub /></a>
+           
           </div>
           <div>
           <aside>

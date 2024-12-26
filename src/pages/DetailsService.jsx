@@ -10,8 +10,7 @@ export default function DetailsService() {
 
 
   
-// console.log(data)
-  // const {image, title, name, website, desc, category,startDate, price, email,_id} = data || {}
+
 
   return (
   <>

@@ -37,7 +37,7 @@ export default function AddReview() {
       startDate,
       service_id :id,
     };
-    console.log(review);
+    
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/add-review`, review);
       toast.success("Thanks to your valuable feedback!!");

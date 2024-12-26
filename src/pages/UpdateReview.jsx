@@ -30,9 +30,9 @@ const {id} = useParams()
     const {data} = await axiosSecuring.get(`/update/${id}`)
     setUpdate(data)
     setStartDate(new Date(data.startDate))
-    // console.log(data)
+   
   } 
-  // console.log(update)
+
   // update review
   const reviewUpdate = async (e) => {
     e.preventDefault();
@@ -44,7 +44,7 @@ const {id} = useParams()
       rating,
       startDate
     };
-    console.log(review);
+ 
     try {
       await axiosSecuring.put(`/update-review-add/${id}`, review);
       toast.success("Your Review is updated!!");

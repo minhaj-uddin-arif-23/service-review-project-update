@@ -18,11 +18,10 @@ export default function UpdateService() {
 
   const fetchServiceData = async () => {
     const {data} = await axiosSecuring.get(`/get-service-data/${id}`)
-    console.log(data)
+  
     setUpdate(data)
   }
 
-  // console.log(update)
 
   const handleServiceUpdate = async (e) => {
     e.preventDefault();
@@ -39,7 +38,6 @@ export default function UpdateService() {
       category,
       price,
     };
-    console.log(UpdateService);
 
     try {
       await axiosSecuring.put(`/update-service/${id}`, UpdateService);

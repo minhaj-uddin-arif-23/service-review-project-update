@@ -39,7 +39,7 @@ export default function AddService() {
       Total_review: 0,
       email,
     };
-    console.log(service);
+    
 
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/add-services`, service);
