@@ -147,11 +147,11 @@ export default function AddService() {
           <option disabled selected>
             Category
           </option>
-          <option>Food</option>
+          <option>Education</option>
           <option>Transport</option>
           <option>IT</option>
           <option>Repair Service Providers</option>
-          <option>Chemicals & Plastic</option>
+          <option>Chemicals</option>
           <option>Cultural Goods</option>
           <option>Bars & Cafes</option>
           <option>Vegetarian & Diet</option>

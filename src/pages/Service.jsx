@@ -68,10 +68,11 @@ console.log(filter)
         <option disabled selected>
           Category
         </option>
-        <option>Food</option>
+        <option>Chemicals</option>
         <option>Transport</option>
         <option>IT</option>
         <option>Education</option>
+       
       </select>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 ml-9 md:ml-0 lg:ml-0 my-5">
         {service?.map((data) => (
