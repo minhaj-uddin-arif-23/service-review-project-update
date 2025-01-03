@@ -13,7 +13,7 @@ export default function Lotie() {
       <div className='ml-14'>
         <motion.h1 
           animate={{
-            x: [0, 100], // Moves from left (0) to right (100px)
+            x: [0, 10], // Moves from left (0) to right (100px)
             color: ["#ff0000", "#0000ff"], // Animates from red to blue
           }}
           transition={{

@@ -15,14 +15,14 @@ export default function Footer() {
             <br />
           </p>
         </aside>
-        <nav>
+        {/* <nav>
           <h6 className="uppercase text-lg font-semibold  ">Adress</h6>
           <a className="link link-hover mt-3">Bangladesh Office</a>
           <p className="link link-hover my-3 ">A-15 Chattogram-1233 <br></br>,Bangladesh</p>
           <a className="link link-hover">Email</a>
           <a className="link link-hover my-3">uarif1933@gmail.com</a>
-          <a className="link link-hover my-3">arif62901@gmail.com</a>
-        </nav>
+          <a className="link link-hover my-3">arif62901@gmail.com</a> */}
+        {/* </nav> */}
         
         <nav>
           <h6 className="uppercase text-lg font-semibold  ">Services</h6>
@@ -51,18 +51,18 @@ export default function Footer() {
           <h6 className="footer-title">Newsletter</h6>
           <fieldset className="form-control w-80">
             <label className="label">
-              <span className="label-text">Enter your email address</span>
+              <span className="label-text">Email</span>
             </label>
-            <div className="join">
+            <div className="join ">
               <input
                 type="text"
-                placeholder="Send me email get Update news"
-                className="input input-bordered join-item  w-40 lg:w-44"
+                placeholder="Email"
+                className="input input-bordered  w-40 md:w-32 lg:w-44"
               />
-              <button className="btn bg-lime-400 join-item">Subscribe</button>
+              <button className="btn bg-lime-400   ">Subscribe</button>
             </div>
           </fieldset>
-          <div className="flex text-xl gap-3 my-2">
+          <div className="flex text-xl gap-3 my-2 md:flex-col">
             
             <a href="https://www.linkedin.com/in/minhaj-uddin-arif-4321b0258/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className="text-blue-500" /></a>
              <a href="https://medium.com/@arifk62901" target="_blank" rel="noopener noreferrer"><FaMediumM /></a>
@@ -73,8 +73,8 @@ export default function Footer() {
           <div>
           <aside>
             <p>
-              Copyright © {new Date().getFullYear()} - All right reserved by
-              BACKEND FORGE Industries Ltd
+              Copyright © {new Date().getFullYear()} -<br></br> All right reserved by <br></br>
+              BACKEND FORGE 
             </p>
           </aside>
           </div>

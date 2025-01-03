@@ -118,7 +118,7 @@ export default function Navbar() {
       <div className="lg:hidden flex items-center">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className=" rounded-full py-2 border-2 px-2 text-lg  text-white"
+          className=" rounded-full py-2 border-2 px-2 text-lg  text-white md:mr-"
         > 
    
           <IoIosArrowDropdownCircle />
