@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Slidess({image,text}) {
   return (
     <div
-      className=' h-60 md:h-[20rem] md:w-full bg-center bg-cover lg:h-[26rem] 2xl:[h-35rem] '
+      className=' h-60 md:h-[20rem] md:w-full bg-center bg-cover lg:h-[30rem] 2xl:[h-35rem] '
       style={{
         backgroundImage: `url(${image})`,
       }}

@@ -7,12 +7,13 @@ import { Helmet } from 'react-helmet'
 import Slider from '../Components/Slider'
 import Recent_Review from '../Components/Recent_Review'
 import Team from './Team'
+import OfferSection from '../Components/OfferSection'
 // import Sliders from '../Components/Sliders'
 
 // import Pagination from '../Components/pagination'
 
 export default function Home() {
-
+  // <Recent_Review />
   return (
     <div className='my-20'>
      <Helmet>
@@ -25,12 +26,13 @@ export default function Home() {
       
      <Lotie />
       <HomeCard />
-      <Recent_Review />
-      {/* <Sliders /> */}
-      <Countup />
+    
+      <OfferSection />
+   
       <Team />
       <Accordian />
       {/* faq */}
+      <Countup />
     </div>
   )
 }
