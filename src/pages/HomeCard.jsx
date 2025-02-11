@@ -17,7 +17,7 @@ export default function HomeCard() {
 
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 ml-11 md:ml-0 lg:ml-0'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4   ml-11 md:ml-0 lg:ml-0'>
         {
           home?.map((data) => (
                     <ServiceCard key={data._id} data={data} />
