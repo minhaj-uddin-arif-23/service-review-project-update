@@ -46,22 +46,22 @@ export default function Login() {
     <div className="hero-content flex-col lg:flex-row-reverse items-center">
    
       <div className="text-center lg:text-left w-full lg:w-1/2 flex justify-center">
-        <Lottie animationData={login} className="max-w-xs lg:max-w-sm" />
+        <Lottie animationData={login} className="max-w-xs lg:max-w-xl" />
       </div>
   
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-8">
+      <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
       
-        <h2 className="text-4xl font-semibold text-center mb-4">Sign In</h2>
+        <h2 className="text-4xl  text-center mb-4">Sign In</h2>
   
         
         <p className="text-center text-gray-500 mb-4">Sign in with a social account</p>
         <div className="form-control mb-6">
           <button
             onClick={handleGoogle}
-            className="border-2 border-gray-300 text-2xl rounded-full flex items-center justify-center py-2 px-4 hover:bg-gray-100 transition"
+            className="border-2 border-gray-200 text-2xl  flex   py-2 rounded-md px-4 hover:bg-gray-100 transition  justify-evenly"
           >
-            <FcGoogle className="text-3xl" />
-            <span className="ml-2 text-gray-600">Sign in with Google</span>
+            <FcGoogle className="text-xl mt-1 " />
+            <span className="ml-2 text-lg text-gray-800">Sign in with Google</span>
           </button>
         </div>
   
@@ -73,7 +73,7 @@ export default function Login() {
           {/* Email Field */}
           <div className="form-control mb-4">
             <label className="label">
-              <span className="label-text text-lg">Email</span>
+              <span className="label-text text-md">Email</span>
             </label>
             <input
               name="email"
@@ -87,7 +87,7 @@ export default function Login() {
           {/* Password Field */}
           <div className="form-control mb-4">
             <label className="label">
-              <span className="label-text text-lg">Password</span>
+              <span className="label-text text-md">Password</span>
             </label>
             <input
               name="password"
@@ -109,11 +109,9 @@ export default function Login() {
               Login
             </button>
           </div>
-          <div className="form-control mt-3 flex items-center">
-           <h3 className="my-3 text-gray-500"> You don't Have any account?</h3>
-            <Link to={'/auth/signUp'}  className="btn btn-outline font-medium w-20 ">
-              Resigter
-            </Link>
+          <div className="form-control  flex items-center">
+          <p class="mt-8 text-sm font-light text-center text-gray-400"> Don't have an account? <Link to={'/auth/signUp'}  class="font-medium text-gray-700 dark:text-gray-200 hover:underline">Resigter Now</Link></p>
+          
           </div>
         </form>
       </div>

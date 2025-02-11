@@ -31,12 +31,12 @@ export default function Navbar() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/auth/signIn" className="font-semibold hover:text-lime-200">
+        <NavLink to="/auth/signIn" className="btn  btn-outline text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1">
           Login
         </NavLink>
       </li>
       <li>
-        <NavLink to="/auth/signUp" className="font-semibold btn-sm hover:text-lime-200">
+        <NavLink to="/auth/signUp" className="btn  btn-outline text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1">
           Register
         </NavLink>
       </li>
@@ -73,7 +73,7 @@ export default function Navbar() {
       <li>
         <button
           onClick={signout}
-          className=" btn bg-lime-400 text-black btn-sm font-semibold md:ml-4 lg:ml-4 mt-3"
+          className="btn  btn-outline text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1"
         >
           Logout
         </button>
@@ -87,7 +87,7 @@ export default function Navbar() {
         <SiBackendless className="text-lime-400 text-4xl" />
         <NavLink
           to="/"
-          className="btn bg-black text-white px-4 btn-sm text-lg uppercase font-bold hover:bg-lime-300 hover:text-black"
+          className=" bg-black text-white px-4 btn-sm text-lg uppercase font-bold  "
         >
           Backend Forge
         </NavLink>

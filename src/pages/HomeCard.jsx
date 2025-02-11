@@ -17,6 +17,9 @@ export default function HomeCard() {
 
   return (
     <div>
+      <div>
+        <h1 className='text-2xl my-3 ml-9 md:ml-4 lg:ml-0 font-semibold'>Top-Rated Service Provider 🥇</h1>
+      </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4   ml-11 md:ml-0 lg:ml-0'>
         {
           home?.map((data) => (

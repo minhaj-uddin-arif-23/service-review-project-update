@@ -102,12 +102,12 @@ export default function Register() {
     <div className="flex flex-col lg:flex-row-reverse items-center justify-center">
       {/* Lottie Animation */}
       <div className="w-full lg:w-1/2 flex justify-center">
-        <Lottie animationData={register} className="max-w-xs lg:max-w-sm" />
+        <Lottie animationData={register} className="max-w-xs lg:max-w-md" />
       </div>
   
       {/* Registration Form */}
       <div className="w-full lg:w-1/2 px-6">
-        <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="bg-white rounded-lg shadow-  border-2 border-gray-200 p-8">
           {/* Title */}
           <h1 className="font-semibold text-4xl text-center text-gray-800 mb-4">
             Register
@@ -117,10 +117,10 @@ export default function Register() {
           <div className="flex justify-center mb-6">
             <button
               onClick={handleGoogleLogin}
-              className="border-2 border-gray-300 text-2xl rounded-full flex items-center justify-center px-4 py-2 hover:bg-gray-100 transition"
+              className="border-2 border-gray-200 text-2xl  flex   py-2 rounded-md px-4 hover:bg-gray-100 transition  justify-evenly w-full"
             >
-              <FcGoogle className="text-3xl" />
-              <span className="ml-2 text-gray-600">Sign in with Google</span>
+              <FcGoogle className="text-xl mt-1" />
+              <span className="ml-2 text-lg text-gray-800">Sign in with Google</span>
             </button>
           </div>
   
@@ -130,7 +130,7 @@ export default function Register() {
               {/* Name and Photo */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-lg">Name</span>
+                  <span className="label-text text-md">Name</span>
                 </label>
                 <input
                   name="name"
@@ -142,7 +142,7 @@ export default function Register() {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-lg">Photo</span>
+                  <span className="label-text text-md">Photo</span>
                 </label>
                 <input
                   name="photo"
@@ -156,7 +156,7 @@ export default function Register() {
               {/* Email and Password */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-lg">Email</span>
+                  <span className="label-text text-md">Email</span>
                 </label>
                 <input
                   name="email"
@@ -168,7 +168,7 @@ export default function Register() {
               </div>
               <div className="form-control relative">
                 <label className="label">
-                  <span className="label-text text-lg">Password</span>
+                  <span className="label-text text-md">Password</span>
                 </label>
                 <input
                   name="password"
@@ -179,7 +179,7 @@ export default function Register() {
                 />
                 <div
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute top-2/3 right-3 transform -translate-y-1/2 cursor-pointer"
+                  className="absolute top-[3.8rem] right-3 transform -translate-y-1/2 cursor-pointer"
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </div>
@@ -196,7 +196,7 @@ export default function Register() {
   
             {/* Submit Button */}
             <div className="form-control mt-4">
-              <button className="btn btn-success w-full">
+              <button className="btn bg-lime-400 w-full">
                 Sign Up
               </button>
             </div>
@@ -206,13 +206,13 @@ export default function Register() {
   
             {/* Redirect to Login */}
             <div className="mt-6 text-center">
-              <p className="mb-2">Already have an account?</p>
-              <Link
-                to={`/auth/login`}
-                className="btn bg-lime-400 text-black font-medium w-1/2"
+              <p className="mb-2">Already have an account?  <Link
+                to={`/auth/signIn`}
+                className=" text-lime-800 font-medium w-1/2"
               >
                 Sign In
-              </Link>
+              </Link>  </p>
+             
             </div>
           </form>
         </div>
