@@ -26,7 +26,7 @@ export default function DetailsService() {
        setService={service}
        /> : "Not found" 
     
-     }
+     } 
    </div>
    
   </>

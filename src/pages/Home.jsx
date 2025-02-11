@@ -5,6 +5,7 @@ import Countup from './Countup'
 import Accordian from '../Components/Accordian'
 import { Helmet } from 'react-helmet'
 import Slider from '../Components/Slider'
+import Recent_Review from '../Components/Recent_Review'
 // import Sliders from '../Components/Sliders'
 
 // import Pagination from '../Components/pagination'
@@ -23,6 +24,7 @@ export default function Home() {
       
      <Lotie />
       <HomeCard />
+      <Recent_Review />
       {/* <Sliders /> */}
       <Countup />
       <Accordian />

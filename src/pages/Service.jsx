@@ -5,11 +5,13 @@ import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { GrLinkPrevious } from "react-icons/gr";
 import { GrLinkNext } from "react-icons/gr";
+import Loadings from "../Components/Loadings";
 export default function Service() {
-  // filter
+  //  * filter
   const [filter, setFilter] = useState("");
-
-  // pagination
+  // * search
+  const [search, setSearch] = useState("");
+  // * pagination
   const [currentPage, setCurrentPage] = useState(0);
   // const [count,setCount] = useState()
   const { count } = useLoaderData();
@@ -17,28 +19,36 @@ export default function Service() {
   const totalService = Number(count) || 0;
   const numberOfPages = Math.ceil(totalService / itemperPage);
   const pages = [...Array(numberOfPages).keys()];
-  
+  const [loading, setLoading] = useState(true);
 
+  // * api multiple query write system like  ? then & sign
   const handleChange = (e) => {
-   
     const val = parseInt(e.target.value);
     setItemperPage(val);
     setCurrentPage(0);
-   
   };
   const [service, setService] = useState([]);
   useEffect(() => {
     fetchAllService();
-  }, [currentPage, itemperPage, filter]);
+  }, [currentPage, itemperPage, filter, search]);
   const fetchAllService = async () => {
-    const { data } = await axios.get(
-      `${
-        import.meta.env.VITE_API_URL
-      }/all-Service?filter=${filter}&page=${currentPage}&size=${itemperPage}`
-    );
-    setService(data);
+    setLoading(true);
+    try {
+      const { data } = await axios.get(
+        `${
+          import.meta.env.VITE_API_URL
+        }/all-Service?filter=${filter}&search=${search}&page=${currentPage}&size=${itemperPage}`
+      );
+      setTimeout(() => {
+        setService(data);
+        setLoading(false);
+      }, 500);
+    } catch (error) {
+      console.log("No data fetchin service ", error);
+      setLoading(false)
+    }
   };
- 
+
   // handle prev and next
   const handlePrev = () => {
     if (currentPage > 0) {
@@ -61,26 +71,44 @@ export default function Service() {
           Best Services in Deals
         </h1>{" "}
       </div>
-      <select
-        onChange={(e) => setFilter(e.target.value)}
-        className="select select-info w-full max-w-xs"
-      >
-        <option disabled selected>
-          Category
-        </option>
-        <option>Backend Technology</option>
-        {/* <option>Chemicals</option> */}
-        <option>Transport</option>
-        <option>IT</option>
-        <option>Education</option>
-        <option>Cultural Goods</option>
-        <option>Chemicals</option>
-      </select>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 ml-9 md:ml-0 lg:ml-0 my-5">
-        {service?.map((data) => (
-          <ServiceCard key={data._id} data={data} />
-        ))}
+      <div className="flex gap-4">
+        <select
+          onChange={(e) => setFilter(e.target.value)}
+          className="select select-info w-full max-w-xs"
+        >
+          <option disabled selected>
+            Category
+          </option>
+          <option>Backend Technology</option>
+          {/* <option>Chemicals</option> */}
+          <option>Transport</option>
+          <option>IT</option>
+          <option>Education</option>
+          <option>Cultural Goods</option>
+          <option>Chemicals</option>
+        </select>
+        <div>
+          {/* search implement */}
+          <input
+            placeholder="Search your favourite service"
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+            className="input input-info w-full max-w-xs"
+          />
+        </div>
       </div>
+
+      {/*  fetch the data */}
+      {loading ? (
+        <Loadings />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 ml-9 md:ml-0 lg:ml-0 my-5">
+          {service?.map((data) => (
+            <ServiceCard key={data._id} data={data} />
+          ))}
+        </div>
+      )}
+
       {/* pagination implementation */}
       <div>
         <div className="gap-6 pagination my-10 flex items-center justify-center ">

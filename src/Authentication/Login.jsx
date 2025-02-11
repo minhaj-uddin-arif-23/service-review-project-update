@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import login from '../assets/login.json'
 import Lottie from "lottie-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Shared_Context/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
@@ -108,6 +108,12 @@ export default function Login() {
             <button className="btn bg-lime-400 text-black font-medium w-full">
               Login
             </button>
+          </div>
+          <div className="form-control mt-3 flex items-center">
+           <h3 className="my-3 text-gray-500"> You don't Have any account?</h3>
+            <Link to={'/auth/signUp'}  className="btn btn-outline font-medium w-20 ">
+              Resigter
+            </Link>
           </div>
         </form>
       </div>

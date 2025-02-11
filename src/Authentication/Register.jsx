@@ -209,7 +209,7 @@ export default function Register() {
               <p className="mb-2">Already have an account?</p>
               <Link
                 to={`/auth/login`}
-                className="btn btn-outline btn-primary w-1/2"
+                className="btn bg-lime-400 text-black font-medium w-1/2"
               >
                 Sign In
               </Link>

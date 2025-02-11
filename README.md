@@ -15,8 +15,8 @@ Five Feture of this Project : -->
 
 Technology used : --> 
 
------>  HTML  TAILWIND CSS  FIREBASE
----->   MONGODB EXPRESS REACT NODE ----> JS
+----->  HTML CSS3  TAILWIND CSS  Daaisy ui FIREBASE
+---->   MONGODB EXPRESS REACT NODE ----> JS JWT
 
 TailWind Component Use  : -->
 

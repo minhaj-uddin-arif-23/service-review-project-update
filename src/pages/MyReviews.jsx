@@ -9,7 +9,7 @@ import { useAxiosSecuring } from "../Hook/useAxiosSecuring";
 export default function MyReviews() {
   const axiosSecuring = useAxiosSecuring();
   const [startDate, setStartDate] = useState(new Date());
-
+  const [loading,setLoading] = useState(true)
 
   const { user } = useAuth();
   const [review, setReview] = useState();
@@ -23,12 +23,14 @@ export default function MyReviews() {
    
   };
   const handleDelete = async (id) => {
+    setLoading(true)
     try {
       await axiosSecuring.delete(`/removeR/${id}`);
       fetchReview();
       toast.success("Deleted successfully");
     } catch (err) {
       toast.error("Something was wrong !!");
+      setLoading(false)
     }
   };
 

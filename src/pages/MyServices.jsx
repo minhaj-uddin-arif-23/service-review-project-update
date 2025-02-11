@@ -6,6 +6,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useAxiosSecuring } from "../Hook/useAxiosSecuring";
+import Loadings from "../Components/Loadings";
 
 export default function MyServices() {
   const axiosSecuring = useAxiosSecuring();
@@ -13,18 +14,28 @@ export default function MyServices() {
   const [search, setSearch] = useState("");
   const { user } = useAuth();
   const [selectedServiceId, setSelectedServiceId] = useState(null); 
+  const [loading,setLoading] = useState(true)
 
   useEffect(() => {
     fetchMyservice();
   }, [search]);
 
+  // see my own service
   const fetchMyservice = async () => {
-    const { data } = await axiosSecuring.get(
-      `/servicesOwn/${user?.email}?search=${search}`
-    );
-    setReview(data);
+    setLoading(true)
+    try {
+      const { data } = await axiosSecuring.get(
+        `/servicesOwn/${user?.email}?search=${search}`
+      );
+      setTimeout(() => {
+        setReview(data);
+        setLoading(false)
+      },500)
+    } catch (error) {
+      setLoading(false)
+    }
   };
-
+  // delete service
   const handleDeleteMYservice = async (id) => {
     try {
       await axiosSecuring.delete(`/myServiceDelete/${id}`);
@@ -131,76 +142,87 @@ export default function MyServices() {
 
           {/* Table Body */}
           <tbody>
-            {myReview?.map((data, index) => (
-              <tr key={data._id} className="hover:bg-gray-50 transition">
-                <td className="py-3 px-4 text-sm sm:text-base">{index + 1}</td>
-                <td className="py-3 px-4 text-sm sm:text-base">{data.title}</td>
-                <td className="py-3 px-4 text-sm sm:text-base">{data.name}</td>
-                <td className="py-3 px-4 text-sm sm:text-base">{data.category}</td>
-                <td className="py-3 px-4 text-sm sm:text-base">{data.price}</td>
-                <td className="py-3 px-4 text-center">
-                  <button
-                    onClick={() => confirmUpdateService(data._id)}
-                    className="btn btn-sm bg-lime-400 text-black hover:bg-lime-500"
-                  >
-                    <CiEdit className="mr-2" />
-                    Edit
-                  </button>
-                </td>
-                <td className="py-3 px-4 text-center">
-                  <button
-                    onClick={() => myserviceDelete(data._id)}
-                    className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
-                  >
-                    Delete <MdDeleteForever className="ml-2" />
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {
+              loading ? (<Loadings />) : (
+                myReview?.map((data, index) => 
+                  <tr key={data._id} className="hover:bg-gray-50 transition">
+                    <td className="py-3 px-4 text-sm sm:text-base">{index + 1}</td>
+                    <td className="py-3 px-4 text-sm sm:text-base">{data.title}</td>
+                    <td className="py-3 px-4 text-sm sm:text-base">{data.name}</td>
+                    <td className="py-3 px-4 text-sm sm:text-base">{data.category}</td>
+                    <td className="py-3 px-4 text-sm sm:text-base">{data.price}</td>
+                    <td className="py-3 px-4 text-center">
+                      <button
+                        onClick={() => confirmUpdateService(data._id)}
+                        className="btn btn-sm bg-lime-400 text-black hover:bg-lime-500"
+                      >
+                        <CiEdit className="mr-2" />
+                        Edit
+                      </button>
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <button
+                        onClick={() => myserviceDelete(data._id)}
+                        className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
+                      >
+                        Delete <MdDeleteForever className="ml-2" />
+                      </button>
+                    </td>
+                  </tr>
+                )
+              )
+            }
+           
           </tbody>
         </table>
 
         {/* For small screens, use flex layout */}
+
         <div className="sm:hidden">
-          {myReview?.map((data, index) => (
-            <div key={data._id} className="flex flex-col bg-gray-100 my-3 p-4 rounded-lg shadow-md">
-              <div className="flex justify-between mb-2">
-                <span className="font-semibold">#</span>
-                <span>{index + 1}</span>
-              </div>
-              <div className="flex justify-between mb-2">
-                <span className="font-semibold">Title</span>
-                <span>{data.title}</span>
-              </div>
-              <div className="flex justify-between mb-2">
-                <span className="font-semibold">Company Name</span>
-                <span>{data.name}</span>
-              </div>
-              <div className="flex justify-between mb-2">
-                <span className="font-semibold">Category</span>
-                <span>{data.category}</span>
-              </div>
-              <div className="flex justify-between mb-2">
-                <span className="font-semibold">Price</span>
-                <span>{data.price}</span>
-              </div>
-              <div className="flex justify-between">
-                <button
-                  onClick={() => confirmUpdateService(data._id)}
-                  className="btn btn-sm bg-lime-400 text-black hover:bg-lime-500"
-                >
-                  <CiEdit className="mr-2" />
-                  Edit
-                </button>
-                <button
-                  onClick={() => myserviceDelete(data._id)}
-                  className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
-                >
-                  Delete <MdDeleteForever className="ml-2" />
-                </button>
-              </div>
-            </div>
-          ))}
+          {
+            loading ? <Loadings /> : (
+              myReview?.map((data, index) => (
+                <div key={data._id} className="flex flex-col bg-gray-100 my-3 p-4 rounded-lg shadow-md">
+                  <div className="flex justify-between mb-2">
+                    <span className="font-semibold">#</span>
+                    <span>{index + 1}</span>
+                  </div>
+                  <div className="flex justify-between mb-2">
+                    <span className="font-semibold">Title</span>
+                    <span>{data.title}</span>
+                  </div>
+                  <div className="flex justify-between mb-2">
+                    <span className="font-semibold">Company Name</span>
+                    <span>{data.name}</span>
+                  </div>
+                  <div className="flex justify-between mb-2">
+                    <span className="font-semibold">Category</span>
+                    <span>{data.category}</span>
+                  </div>
+                  <div className="flex justify-between mb-2">
+                    <span className="font-semibold">Price</span>
+                    <span>{data.price}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <button
+                      onClick={() => confirmUpdateService(data._id)}
+                      className="btn btn-sm bg-lime-400 text-black hover:bg-lime-500"
+                    >
+                      <CiEdit className="mr-2" />
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => myserviceDelete(data._id)}
+                      className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
+                    >
+                      Delete <MdDeleteForever className="ml-2" />
+                    </button>
+                  </div>
+                </div>
+              ))
+            )
+          }
+        
         </div>
       </div>
     </div>

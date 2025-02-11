@@ -5,14 +5,23 @@ import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Hook/useAuth";
+import Loadings from "../Components/Loadings";
 // -------------------->
 export default function AddService() {
   const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [loading,setLoading] = useState(true)
+
+  useState(() => {
+    setTimeout(() => {
+      setLoading(false)
+    },1000)
+  })
   // ------------------>
   const handleService = async (e) => {
     e.preventDefault();
+    setLoading(true)
     const image = e.target.image.value;
     const title = e.target.title.value;
     const name = e.target.name.value;
@@ -47,6 +56,8 @@ export default function AddService() {
       navigate("/service");
     } catch (err) {
       toast.error(err, "Data not added");
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -188,7 +199,7 @@ export default function AddService() {
 
       {/* Submit Button */}
       <div className="form-control mt-6">
-        <button className="btn bg-lime-300 font-bold w-full">Add Service</button>
+        <button className="btn bg-lime-300 font-bold w-full">{loading ? <Loadings /> : "Add Service"}</button>
       </div>
     </form>
   </div>
