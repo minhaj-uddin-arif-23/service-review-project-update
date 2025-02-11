@@ -16,12 +16,12 @@ export default function AddService() {
   useState(() => {
     setTimeout(() => {
       setLoading(false)
-    },1000)
+    },300)
   })
   // ------------------>
   const handleService = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    // setLoading(true)
     const image = e.target.image.value;
     const title = e.target.title.value;
     const name = e.target.name.value;

@@ -4,6 +4,7 @@ import { useAuth } from "../Hook/useAuth";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAxiosSecuring } from "../Hook/useAxiosSecuring";
+import Loadings from "../Components/Loadings";
 // import ShowRevies from '../Components/ShowRevies';
 
 export default function MyReviews() {
@@ -18,12 +19,21 @@ export default function MyReviews() {
     fetchReview();
   }, []);
   const fetchReview = async () => {
-    const { data } = await axiosSecuring.get(`/reviewShow/${user?.email}`);
-    setReview(data);
+    setLoading(true)
+    try {
+      const { data } = await axiosSecuring.get(`/reviewShow/${user?.email}`);
+      setTimeout(() => {
+        setReview(data);
+        setLoading(false)
+      },500)
+    } catch (error) {
+      setLoading(false)
+    }
+  
    
   };
   const handleDelete = async (id) => {
-    setLoading(true)
+    
     try {
       await axiosSecuring.delete(`/removeR/${id}`);
       fetchReview();
@@ -77,46 +87,51 @@ export default function MyReviews() {
           <span className="text-black">You can review this</span>
         </h1>
         {/* <Link   >Back To review Service</Link> */}
-        {review?.map((data) => (
-          <>
-            <div className="card   shadow-md p-4 max-w-md mx-auto">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="avatar">
-                  <div className="w-12 rounded-full bg-neutral-focus text-neutral-content">
-                    <img src={user?.photoURL} alt="" />
+        {
+          loading ? <Loadings /> : (
+            review?.map((data) => (
+              <>
+                <div className="card   shadow-md p-4 max-w-md mx-auto">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="avatar">
+                      <div className="w-12 rounded-full bg-neutral-focus text-neutral-content">
+                        <img src={user?.photoURL} alt="" />
+                      </div>
+                    </div>
+                    <div>
+                      <h2 className="text-lg font-semibold">{user?.displayName}</h2>
+                      <p className="text-sm text-gray-500">
+                        {data.rating} reviews • BD
+                      </p>
+                    </div>
+                  </div>
+    
+                  <p className="text-lg font-semibold mb-2">{data.title}</p>
+                  <p>{data.text}</p>
+                  <p  className="text-sm text-gray-500 mb-4">
+                    {new Date(data.startDate).toLocaleDateString()}
+                  </p>
+    
+                  <div className="flex gap-4">
+                    <Link
+                      to={`/update/${data._id}`}
+                      className="btn btn-outline btn-sm"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => modernDelete(data._id)}
+                      className="btn btn-error btn-sm text-white"
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
-                <div>
-                  <h2 className="text-lg font-semibold">{user?.displayName}</h2>
-                  <p className="text-sm text-gray-500">
-                    {data.rating} reviews • BD
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-lg font-semibold mb-2">{data.title}</p>
-              <p>{data.text}</p>
-              <p  className="text-sm text-gray-500 mb-4">
-                {new Date(data.startDate).toLocaleDateString()}
-              </p>
-
-              <div className="flex gap-4">
-                <Link
-                  to={`/update/${data._id}`}
-                  className="btn btn-outline btn-sm"
-                >
-                  Edit
-                </Link>
-                <button
-                  onClick={() => modernDelete(data._id)}
-                  className="btn btn-error btn-sm text-white"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </>
-        ))}
+              </>
+            ))
+          )
+        }
+     
       </div>
     </>
   );
