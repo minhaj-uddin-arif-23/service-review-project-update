@@ -18,15 +18,15 @@ export default function FramerMotion() {
   };
   return (
     <div
-  className="hero min-h-[90vh] "
+  className="hero min-h-[30vh] md:min-h-[60vh] lg:min-h-[90vh] "
   style={{
     backgroundImage: "url(https://i.ibb.co.com/B6LDNJX/back-school-education-background-concept-school-accessories-items-3d-render-illustration-696265-94.jpg)",
   }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-md text-white ">Discover a partner off <motion.span
-        className="overflow-hidden border-r-2 border-gray-500 inline-block"
+      <h1 className="mb-5 text-lg md:text-5xl font-md text-white ">Discover a partner off <motion.span
+        className= "hidden  md:overflow-hidden border-r-2 border-gray-500 md:inline-block"
         variants={typingVariants}
         initial="hidden"
         animate="visible"
@@ -35,7 +35,7 @@ export default function FramerMotion() {
         you can rely on
       </motion.span> 
       </h1>
-      <p className="mb-5 text-lg font-semibold">
+      <p className="mb-5 text-sm md:text-md ">
       True opinions from real voices
       </p>
       <input
@@ -43,7 +43,7 @@ export default function FramerMotion() {
   placeholder="Type here"
   className="input input-bordered input-accent w-full rounded-lg max-w-xs" />
       
-      <Link to={`/service`} className="btn bg-lime-400 ml-4 font-bold">Find one</Link>
+      <Link to={`/service`} className="btn bg-lime-400 ml-4 mt-3 md:mt-0 font-bold">Find one</Link>
     </div>
   </div>
 </div>

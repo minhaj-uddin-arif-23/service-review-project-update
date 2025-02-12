@@ -8,6 +8,7 @@ import Slider from '../Components/Slider'
 import Recent_Review from '../Components/Recent_Review'
 import Team from './Team'
 import OfferSection from '../Components/OfferSection'
+import FramerMotion from '../Components/FramerMotion'
 // import Sliders from '../Components/Sliders'
 
 // import Pagination from '../Components/pagination'
@@ -22,7 +23,8 @@ export default function Home() {
       {/* photo anr write moving */}
       {/* <Pagination /> */}
       {/* carousal */}
-      <Slider />
+      {/* <Slider /> */}
+      <FramerMotion />
       
      <Lotie />
       <HomeCard />

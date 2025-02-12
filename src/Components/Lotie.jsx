@@ -28,7 +28,7 @@ export default function Lotie() {
 
 Backend Forge provides cutting-edge backend development services today, offering businesses scalable, secure, and efficient solutions that drive performance.
         </p>
-        <button className="btn bg-lime-400 ">See More</button>
+        <a href='#offerSection' className="btn bg-lime-400 ">See More</a>
       </div>
     </div>
   </div>

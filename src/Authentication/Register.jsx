@@ -117,7 +117,7 @@ export default function Register() {
           <div className="flex justify-center mb-6">
             <button
               onClick={handleGoogleLogin}
-              className="border-2 border-gray-200 text-2xl  flex   py-2 rounded-md px-4 hover:bg-gray-100 transition  justify-evenly w-full"
+              className="border-2 border-gray-200 text-2xl  flex   py-2 rounded-md px-4 hover:bg-gray-100 transition  justify-center w-full"
             >
               <FcGoogle className="text-xl mt-1" />
               <span className="ml-2 text-lg text-gray-800">Sign in with Google</span>

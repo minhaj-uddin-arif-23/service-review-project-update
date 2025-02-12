@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { SiBackendless } from "react-icons/si";
-import { AuthContext } from '../Shared_Context/AuthProvider';
-import { FcServices } from 'react-icons/fc';
+import { AuthContext } from "../Shared_Context/AuthProvider";
+import { FcServices } from "react-icons/fc";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 export default function Navbar() {
   const { user, signout } = useContext(AuthContext);
@@ -21,7 +21,10 @@ export default function Navbar() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/meetOurPartners" className="font-semibold hover:text-lime-200">
+        <NavLink
+          to="/meetOurPartners"
+          className="font-semibold hover:text-lime-200"
+        >
           Meet Our Partners
         </NavLink>
       </li>
@@ -31,12 +34,18 @@ export default function Navbar() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/auth/signIn" className="btn  btn-outline text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1">
+        <NavLink
+          to="/auth/signIn"
+          className="btn  btn-outline md:text-white  btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1"
+        >
           Login
         </NavLink>
       </li>
       <li>
-        <NavLink to="/auth/signUp" className="btn  btn-outline text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1">
+        <NavLink
+          to="/auth/signUp"
+          className="btn  btn-outline md:text-white mt-2 md:mt-0 btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 md:mt-1"
+        >
           Register
         </NavLink>
       </li>
@@ -46,38 +55,53 @@ export default function Navbar() {
   const afterLogin = (
     <>
       <li>
-        <NavLink to="/" className="font-semibold text-md mt-3  hover:text-lime-200">
+        <NavLink
+          to="/"
+          className="font-semibold text-md mt-3  hover:text-lime-200"
+        >
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/service" className="font-semibold text-md mt-3 hover:text-lime-200">
+        <NavLink
+          to="/service"
+          className="font-semibold text-md mt-3 hover:text-lime-200"
+        >
           Services
         </NavLink>
       </li>
       <li>
-        <NavLink to="/myService" className="font-semibold text-md mt-3 hover:text-lime-200">
+        <NavLink
+          to="/myService"
+          className="font-semibold text-md mt-3 hover:text-lime-200"
+        >
           My Services
         </NavLink>
       </li>
       <li>
-        <NavLink to="/addService" className="font-semibold text-md mt-3 hover:text-lime-200">
+        <NavLink
+          to="/addService"
+          className="font-semibold text-md mt-3 hover:text-lime-200"
+        >
           Add Service
         </NavLink>
       </li>
       <li>
-        <NavLink to="/myReview" className="font-semibold text-md mt-3 hover:text-lime-200">
+        <NavLink
+          to="/myReview"
+          className="font-semibold text-md mt-3 hover:text-lime-200"
+        >
           My Reviews
         </NavLink>
       </li>
       <li>
         <button
           onClick={signout}
-          className="btn  btn-outline text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1"
+          className="btn  btn-outline md:text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1 md:mt-3"
         >
           Logout
         </button>
-      </li>
+    </li>
     </>
   );
 
@@ -100,7 +124,10 @@ export default function Navbar() {
               <details>
                 <summary>
                   <div className="avatar">
-                    <div title={user?.displayName} className="w-10 rounded-full">
+                    <div
+                      title={user?.displayName}
+                      className="w-10 rounded-full"
+                    >
                       <img
                         src={user?.photoURL}
                         alt="User Avatar"
@@ -119,8 +146,7 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className=" rounded-full py-2 border-2 px-2 text-lg  text-white md:mr-"
-        > 
-   
+        >
           <IoIosArrowDropdownCircle />
         </button>
         {menuOpen && (
@@ -132,7 +158,10 @@ export default function Navbar() {
                   <details>
                     <summary>
                       <div className="avatar">
-                        <div title={user?.displayName} className="w-10 rounded-full">
+                        <div
+                          title={user?.displayName}
+                          className="w-10 rounded-full"
+                        >
                           <img
                             src={user?.photoURL}
                             alt="User Avatar"

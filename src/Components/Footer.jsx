@@ -60,12 +60,7 @@ export default function Footer() {
                         <a href="#" className="block mt-2 text-sm text-white hover:underline">Videos</a>
                     </div>
 
-                    <div>
-                        <h3 className=" uppercase dark:text-white">Products</h3>
-                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Mega cloud</a>
-                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Aperion UI</a>
-                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Meraki UI</a>
-                    </div>
+                 
 
                     <div>
                         <h3 className=" uppercase dark:text-white">Contact</h3>
@@ -79,7 +74,7 @@ export default function Footer() {
         <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700" />
 
         <div>
-            <p className="text-center  text-white">© Brand 2020 - All rights reserved</p>
+            <p className="text-center  text-white">© Backend Forge 2024 - All rights reserved</p>
         </div>
     </div>
 </footer>
