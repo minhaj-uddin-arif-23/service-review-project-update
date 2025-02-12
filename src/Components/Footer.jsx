@@ -1,86 +1,88 @@
-import React from "react";
-import { BsYoutube } from "react-icons/bs";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
-import { FaMediumM } from "react-icons/fa";
-import { SiBackendless } from "react-icons/si";
+import React from 'react'
+import { FaGithub, FaLinkedinIn, FaMediumM } from 'react-icons/fa'
+import { IoLogoYoutube } from "react-icons/io";
+import { SiBackendless } from 'react-icons/si'
+
 export default function Footer() {
   return (
-    <>
-      <footer className="footer bg-black text-white p-10">
-        <aside>
-          <SiBackendless className="text-lime-600 text-4xl" />
-          <p className="font-bold text-md">
-            Backend Forge Industries Ltd.
-            <br />
-          </p>
-        </aside>
-        {/* <nav>
-          <h6 className="uppercase text-lg font-semibold  ">Adress</h6>
-          <a className="link link-hover mt-3">Bangladesh Office</a>
-          <p className="link link-hover my-3 ">A-15 Chattogram-1233 <br></br>,Bangladesh</p>
-          <a className="link link-hover">Email</a>
-          <a className="link link-hover my-3">uarif1933@gmail.com</a>
-          <a className="link link-hover my-3">arif62901@gmail.com</a> */}
-        {/* </nav> */}
-        
-        <nav>
-          <h6 className="uppercase text-lg font-semibold  ">Services</h6>
-          <a className="link link-hover mt-3">Branding</a>
-          <a className="link link-hover my-3 ">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover my-3">Advertisement</a>
-        </nav>
-        
-        <nav>
-          <h6 className="uppercase text-lg font-semibold">Company</h6>
-          <a className="link link-hover my-3 ">About us</a>
-          <a className="link link-hover my-3 ">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover my-3 ">Press kit</a>
-          
-        </nav>
-        
-        <nav>
-          <h6 className="uppercase text-lg font-semibold">BUISNESS</h6>
-          <a className="link link-hover my-3 ">Products</a>
-          <a className="link link-hover my-3 " >Buisness idea</a>
-          <a className="link link-hover my-3 ">Tech Buisness</a>
-        </nav>
-        <form>
-          <h6 className="footer-title">Newsletter</h6>
-          <fieldset className="form-control w-80">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
-            <div className="join ">
-              <input
-                type="text"
-                placeholder="Email"
-                className="input input-bordered  w-40 md:w-32 lg:w-44"
-              />
-              <button className="btn bg-lime-400   ">Subscribe</button>
+    <div>
+      <footer className="bg-black text-white">
+    <div className="container p-16 mx-auto">
+        <div className="lg:flex">
+            <div className="w-full -mx-6 lg:w-2/5">
+                <div className="px-6">
+                    <SiBackendless className="text-lime-400 text-4xl" />
+                    <p className='my-3 font-medium'>Backend Forge Service ltd  </p>
+
+                    <p className="max-w-sm mt-2 text-white">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
+
+                    <div className="flex mt-6 -mx-2">
+                        <a href="#"
+                            className="mx-2  transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                            aria-label="Reddit">
+                             <a href="https://medium.com/@arifk62901" target="_blank" rel="noopener noreferrer"><FaMediumM /></a>
+                        </a>
+                    
+                        <a href="#"
+                            className="mx-2  transition-colors duration-300  hover:text-blue-500 dark:hover:text-blue-400"
+                            aria-label="Facebook">
+                            <a target="_blank" href="https://youtube.com/@arifuddinm?si=wkqnbqutknbHqY_o"> <IoLogoYoutube className="" /></a>
+                        </a>
+                    
+                        <a href="#"
+                            className="mx-2  transition-colors duration-300  hover:text-blue-500 dark:hover:text-blue-400"
+                            aria-label="Github">
+                           <a href="https://github.com/minhaj-uddin-arif-23" target="_blank" rel="noopener noreferrer"> <FaGithub /></a>
+                        </a>
+                        <a href="#"
+                            className="mx-2  transition-colors duration-300  hover:text-blue-500 dark:hover:text-blue-400"
+                            aria-label="Github">
+                           
+  <a href="https://www.linkedin.com/in/minhaj-uddin-arif-profile/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className="" /></a>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </fieldset>
-          <div className="flex text-xl gap-3 my-2 md:flex-col">
-            
-            <a href="https://www.linkedin.com/in/minhaj-uddin-arif-4321b0258/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className="text-blue-500" /></a>
-             <a href="https://medium.com/@arifk62901" target="_blank" rel="noopener noreferrer"><FaMediumM /></a>
-            <a target="_blank" href="https://youtube.com/@arifuddinm?si=wkqnbqutknbHqY_o"> <BsYoutube className="text-red-400" /></a>
-           <a href="https://github.com/minhaj-uddin-arif-23" target="_blank" rel="noopener noreferrer"> <FaGithub /></a>
-           
-          </div>
-          <div>
-          <aside>
-            <p>
-              Copyright © {new Date().getFullYear()} -<br></br> All right reserved by <br></br>
-              BACKEND FORGE 
-            </p>
-          </aside>
-          </div>
-      
-        </form>
-      </footer>
-    </>
-  );
+
+            <div className="mt-6 lg:mt-0 lg:flex-1">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    <div>
+                        <h3 className=" uppercase dark:text-white">About</h3>
+                        <a href="#" className="block mt-2 text-sm  text-white hover:underline">Company</a>
+                        <a href="#" className="block mt-2 text-sm text-white hover:underline">community</a>
+                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Careers</a>
+                    </div>
+
+                    <div>
+                        <h3 className=" uppercase dark:text-white">Blog</h3>
+                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Tec</a>
+                        <a href="#" className="block mt-2 text-sm  text-white hover:underline">Music</a>
+                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Videos</a>
+                    </div>
+
+                    <div>
+                        <h3 className=" uppercase dark:text-white">Products</h3>
+                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Mega cloud</a>
+                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Aperion UI</a>
+                        <a href="#" className="block mt-2 text-sm text-white hover:underline">Meraki UI</a>
+                    </div>
+
+                    <div>
+                        <h3 className=" uppercase dark:text-white">Contact</h3>
+                        <span className="block mt-2 text-sm  text-white hover:underline">+880-1306291550</span>
+                        <span className="block mt-2 text-sm  text-white hover:underline">uarif1933@email.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700" />
+
+        <div>
+            <p className="text-center  text-white">© Brand 2020 - All rights reserved</p>
+        </div>
+    </div>
+</footer>
+    </div>
+  )
 }

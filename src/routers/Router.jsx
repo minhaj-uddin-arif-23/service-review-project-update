@@ -16,6 +16,12 @@ import Protected_Router from "./Protected_Router";
 import UpdateService from "../pages/UpdateService";
 import Blog from "../Components/Blog";
 import MeetOurPartNers from "../Components/MeetOurPartNers";
+import Consulting from "../OfferSection/Consulting";
+import SoftwareDevelopment from "../OfferSection/SoftwareDevelopment";
+import ITsupport from "../OfferSection/ITsupport";
+import CloudSolutions from "../OfferSection/CloudSolutions";
+import DIgitalMarketing from "../OfferSection/DIgitalMarketing";
+import Cybersecurity from "../OfferSection/Cybersecurity";
 
 export const Router = createBrowserRouter([
   {
@@ -105,5 +111,29 @@ export const Router = createBrowserRouter([
   {
     path: "/updateService/:id",
     element: <UpdateService />,
+  },
+  {
+    path:'/consulting',
+    element:<Consulting />
+  },
+  {
+    path:'/software',
+    element:<SoftwareDevelopment />
+  },
+  {
+    path:'/It',
+    element:<ITsupport />
+  },
+  {
+    path:'/cloud',
+    element:<CloudSolutions />
+  },
+  {
+    path:'/digital',
+    element:<DIgitalMarketing />
+  },
+  {
+    path:'/cybersecurity',
+    element:<Cybersecurity />
   },
 ]);
