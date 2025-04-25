@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useAuth } from "../Hook/useAuth";
 import toast from "react-hot-toast";
 import { CiEdit } from "react-icons/ci";
