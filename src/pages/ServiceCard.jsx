@@ -1,10 +1,11 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 
+// eslint-disable-next-line react/prop-types
 export default function ServiceCard({data}) {
   const {_id,image, title,  desc, category, price} =data || {}
   return (
-    <div className="card  my-4 w-[300px] card-compact bg-base-50 border-2 border-gray-100  shadow-sm transition-all duration-300 hover:shadow-xl hover:border-gray-300 hover:scale-100">
+    <div className="card  my-4 w-[280px] card-compact bg-base-50 border-2 border-gray-100  shadow-sm transition-all duration-300 hover:shadow-xl hover:border-gray-300 hover:scale-100 ">
     <figure>
       <img className='w-full h-52 overflow-hidden px-2 py-2 rounded-2xl'
         src={image}

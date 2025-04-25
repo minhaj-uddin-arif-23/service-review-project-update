@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -62,8 +62,9 @@ export default function Service() {
   };
 
   return (
-    <>
-      <div>
+   <div className="">
+     <>
+      <div className="">
         <Helmet>
           <title>Backend frog services</title>
         </Helmet>
@@ -99,15 +100,17 @@ export default function Service() {
       </div>
 
       {/*  fetch the data */}
-      {loading ? (
+    <div className="max-w-7xl mx-auto">
+    {loading ? (
         <Loadings />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 ml-9 md:ml-0 lg:ml-0 my-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 ml-9 md:ml-0 lg:ml-0 my-5  ">
           {service?.map((data) => (
             <ServiceCard key={data._id} data={data} />
           ))}
         </div>
       )}
+    </div>
 
       {/* pagination implementation */}
       <div>
@@ -147,5 +150,6 @@ export default function Service() {
         </div>
       </div>
     </>
+   </div>
   );
 }

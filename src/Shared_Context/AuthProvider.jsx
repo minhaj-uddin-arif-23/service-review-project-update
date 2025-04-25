@@ -1,4 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.init";
 import {
   createUserWithEmailAndPassword,
@@ -12,6 +13,7 @@ import {
 } from "firebase/auth";
 import axios from "axios";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
 const provider = new GoogleAuthProvider();
 export default function AuthProvider({ children }) {
