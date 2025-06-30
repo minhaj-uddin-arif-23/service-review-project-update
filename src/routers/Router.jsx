@@ -22,6 +22,7 @@ import ITsupport from "../OfferSection/ITsupport";
 import CloudSolutions from "../OfferSection/CloudSolutions";
 import DIgitalMarketing from "../OfferSection/DIgitalMarketing";
 import Cybersecurity from "../OfferSection/Cybersecurity";
+import Dashboard from "../dashboard/Dashboard";
 
 export const Router = createBrowserRouter([
   {
@@ -38,8 +39,8 @@ export const Router = createBrowserRouter([
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/serviceCount`),
       },
       {
-        path:'/meetOurPartners',
-        element:<MeetOurPartNers />
+        path: "/meetOurPartners",
+        element: <MeetOurPartNers />,
       },
       {
         path: "blog",
@@ -86,6 +87,10 @@ export const Router = createBrowserRouter([
     ],
   },
   {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+  {
     path: "/details/:id",
     element: (
       <Protected_Router>
@@ -113,27 +118,27 @@ export const Router = createBrowserRouter([
     element: <UpdateService />,
   },
   {
-    path:'/consulting',
-    element:<Consulting />
+    path: "/consulting",
+    element: <Consulting />,
   },
   {
-    path:'/software',
-    element:<SoftwareDevelopment />
+    path: "/software",
+    element: <SoftwareDevelopment />,
   },
   {
-    path:'/It',
-    element:<ITsupport />
+    path: "/It",
+    element: <ITsupport />,
   },
   {
-    path:'/cloud',
-    element:<CloudSolutions />
+    path: "/cloud",
+    element: <CloudSolutions />,
   },
   {
-    path:'/digital',
-    element:<DIgitalMarketing />
+    path: "/digital",
+    element: <DIgitalMarketing />,
   },
   {
-    path:'/cybersecurity',
-    element:<Cybersecurity />
+    path: "/cybersecurity",
+    element: <Cybersecurity />,
   },
 ]);

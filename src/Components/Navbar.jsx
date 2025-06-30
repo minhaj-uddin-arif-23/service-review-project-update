@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { SiBackendless } from "react-icons/si";
 import { AuthContext } from "../Shared_Context/AuthProvider";
-import { FcServices } from "react-icons/fc";
+// import { FcServices } from "react-icons/fc";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 export default function Navbar() {
   const { user, signout } = useContext(AuthContext);
@@ -94,14 +94,14 @@ export default function Navbar() {
           My Reviews
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <button
           onClick={signout}
           className="btn  btn-outline md:text-white btn-sm rounded-full font-semibold md:ml-4 lg:ml-4 mt-1 md:mt-3"
         >
           Logout
         </button>
-    </li>
+      </li> */}
     </>
   );
 
@@ -121,8 +121,8 @@ export default function Navbar() {
           {user ? afterLogin : beforeLogin}
           {user && (
             <li>
-              <details>
-                <summary>
+              <details className="dropdown dropdown-end">
+                <summary className="cursor-pointer">
                   <div className="avatar">
                     <div
                       title={user?.displayName}
@@ -136,6 +136,24 @@ export default function Navbar() {
                     </div>
                   </div>
                 </summary>
+                <ul className="menu dropdown-content p-2 shadow bg-black rounded-box w-40 text-white">
+                  <li>
+                    <NavLink
+                      to="/dashboard"
+                      className="hover:bg-lime-700 rounded-md px-2 py-1"
+                    >
+                      Dashboard
+                    </NavLink>
+                  </li>
+                  <li>
+                    <button
+                      onClick={signout}
+                      className="w-full text-left hover:bg-red-600 rounded-md px-2 py-1"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
               </details>
             </li>
           )}
@@ -155,8 +173,8 @@ export default function Navbar() {
               {user ? afterLogin : beforeLogin}
               {user && (
                 <li>
-                  <details>
-                    <summary>
+                  <details className="dropdown dropdown-end">
+                    <summary className="cursor-pointer">
                       <div className="avatar">
                         <div
                           title={user?.displayName}
@@ -170,6 +188,24 @@ export default function Navbar() {
                         </div>
                       </div>
                     </summary>
+                    <ul className="menu dropdown-content p-2 shadow bg-black rounded-box w-40 text-white">
+                      <li>
+                        <NavLink
+                          to="/dashboard"
+                          className="hover:bg-lime-700 rounded-md px-2 py-1"
+                        >
+                          Dashboard
+                        </NavLink>
+                      </li>
+                      <li>
+                        <button
+                          onClick={signout}
+                          className="w-full text-left hover:bg-red-600 rounded-md px-2 py-1"
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
                   </details>
                 </li>
               )}
