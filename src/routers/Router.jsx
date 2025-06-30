@@ -23,6 +23,8 @@ import CloudSolutions from "../OfferSection/CloudSolutions";
 import DIgitalMarketing from "../OfferSection/DIgitalMarketing";
 import Cybersecurity from "../OfferSection/Cybersecurity";
 import Dashboard from "../dashboard/Dashboard";
+import Profile from "../dashboard/profile/Profile";
+import Setting from "../dashboard/profile/Setting";
 
 export const Router = createBrowserRouter([
   {
@@ -89,6 +91,14 @@ export const Router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/setting",
+    element: <Setting />,
   },
   {
     path: "/details/:id",
