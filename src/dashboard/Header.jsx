@@ -27,17 +27,19 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-black bg-opacity-90 shadow-lg p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <h1 className="text-2xl font-semibold text-white tracking-tight">Overview</h1>
-      <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-        <div className="relative w-full sm:w-64">
+    <header className="bg-black bg-opacity-90 shadow-lg px-4 py-3 sm:px-6 sm:py-4 flex flex-col md:flex-row justify-between items-center gap-3 sticky top-0 z-50">
+      <h1 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
+        Overview
+      </h1>
+      <div className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
+        <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
           <input
             type="text"
             placeholder="Search..."
-            className="w-full px-3 py-2 pl-10 bg-black bg-opacity-50 text-white border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-200"
+            className="w-full px-3 py-2 pl-10 bg-black bg-opacity-50 text-white border border-white border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-200 text-sm sm:text-base"
           />
           <svg
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white text-opacity-60"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-white text-opacity-60"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -50,11 +52,11 @@ export default function Header() {
             />
           </svg>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="cursor-pointer relative">
               <svg
-                className="w-6 h-6 text-white text-opacity-60 hover:text-opacity-100 transition-colors duration-200"
+                className="w-5 h-5 sm:w-6 sm:h-6 text-white text-opacity-60 hover:text-opacity-100 transition-colors duration-200"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -74,24 +76,26 @@ export default function Header() {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu p-3 shadow-lg bg-black bg-opacity-95 text-white rounded-xl w-64 mt-2 z-50 max-h-96 overflow-y-auto"
+              className="dropdown-content menu p-2 sm:p-3 shadow-lg bg-black bg-opacity-95 text-white rounded-xl w-64 sm:w-72 max-h-80 overflow-y-auto"
             >
               {notifications.length > 0 ? (
                 notifications.map((notification) => (
                   <li
                     key={notification.id}
-                    className={`p-3 mb-2 rounded-md ${getNotificationStyle(
+                    className={`p-2 sm:p-3 mb-1 sm:mb-2 rounded-md ${getNotificationStyle(
                       notification.type
                     )}`}
                   >
-                    <div className="flex justify-between items-center">
-                      <span>{notification.message}</span>
-                      <span className="text-xs opacity-70">{notification.time}</span>
+                    <div className="flex justify-between items-center gap-2 text-xs sm:text-sm">
+                      <span className="truncate">{notification.message}</span>
+                      <span className="text-xs opacity-70 shrink-0">
+                        {notification.time}
+                      </span>
                     </div>
                   </li>
                 ))
               ) : (
-                <li className="p-3 text-white text-opacity-70">
+                <li className="p-2 sm:p-3 text-white text-opacity-70 text-xs sm:text-sm">
                   No notifications
                 </li>
               )}
@@ -101,7 +105,7 @@ export default function Header() {
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="cursor-pointer">
                 <div className="avatar">
-                  <div className="w-7 rounded-full ring ring-yellow-950 ring-opacity-90 ring-offset-2">
+                  <div className="w-6 sm:w-7 rounded-full ring ring-yellow-950 ring-opacity-90 ring-offset-2">
                     <img
                       src={user?.photoURL || "https://via.placeholder.com/32"}
                       alt="User Avatar"
@@ -113,16 +117,16 @@ export default function Header() {
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-3 shadow-lg bg-black bg-opacity-95 text-white rounded-xl w-56 mt-2 z-50"
+                className="dropdown-content menu p-2 sm:p-3 shadow-lg bg-black bg-opacity-95 text-white rounded-xl w-48 sm:w-56 mt-2"
               >
-                <li className="px-3 py-2 font-medium text-white text-opacity-90 border-b border-white border-opacity-10">
+                <li className="px-2 sm:px-3 py-1 sm:py-2 font-medium text-white text-opacity-90 border-b border-white border-opacity-10 text-xs sm:text-sm">
                   {user?.displayName || "User"}
                 </li>
                 <li>
                   <NavLink
                     to="/profile"
                     className={({ isActive }) =>
-                      `text-white text-opacity-90 hover:bg-white hover:bg-opacity-10 rounded-md px-3 py-2 transition-colors duration-200 ${
+                      `text-white text-opacity-90 hover:bg-white hover:bg-opacity-10 rounded-md px-2 sm:px-3 py-1 sm:py-2 transition-colors duration-200 text-xs sm:text-sm ${
                         isActive ? "bg-white bg-opacity-20 font-semibold" : ""
                       }`
                     }
@@ -134,7 +138,7 @@ export default function Header() {
                   <NavLink
                     to="/setting"
                     className={({ isActive }) =>
-                      `text-white text-opacity-90 hover:bg-white hover:bg-opacity-10 rounded-md px-3 py-2 transition-colors duration-200 ${
+                      `text-white text-opacity-90 hover:bg-white hover:bg-opacity-10 rounded-md px-2 sm:px-3 py-1 sm:py-2 transition-colors duration-200 text-xs sm:text-sm ${
                         isActive ? "bg-white bg-opacity-20 font-semibold" : ""
                       }`
                     }
@@ -145,7 +149,7 @@ export default function Header() {
                 <li>
                   <button
                     onClick={signout}
-                    className="w-full text-left text-white text-opacity-90 hover:bg-red-600 hover:text-white rounded-md px-3 py-2 transition-colors duration-200"
+                    className="w-full text-left text-white text-opacity-90 hover:bg-red-600 hover:text-white rounded-md px-2 sm:px-3 py-1 sm:py-2 transition-colors duration-200 text-xs sm:text-sm"
                   >
                     Logout
                   </button>
@@ -153,7 +157,9 @@ export default function Header() {
               </ul>
             </div>
           ) : (
-            <span className="text-white text-opacity-90 font-medium">Guest</span>
+            <span className="text-white text-opacity-90 font-medium text-xs sm:text-sm">
+              Guest
+            </span>
           )}
         </div>
       </div>

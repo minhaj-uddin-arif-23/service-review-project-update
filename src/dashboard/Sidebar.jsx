@@ -35,25 +35,27 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="w-64 bg-gray-950 shadow-lg h-full">
-      <div className="p-6">
-        <h2 className="text-xl font-bold text-white">Dashboard</h2>
+    <div className="w-full sm:w-16 md:w-64 bg-gray-950 shadow-lg h-full fixed top-0 left-0 z-40 transition-all duration-300">
+      <div className="p-4 sm:p-3 md:p-6">
+        <h2 className="text-lg sm:text-base md:text-xl font-bold text-white hidden sm:block md:block">
+          <span className="md:inline hidden">Dashboard</span>
+          <span className="md:hidden inline">Dash</span>
+        </h2>
       </div>
-      <nav className="mt-6">
+      <nav className="mt-4 sm:mt-3 md:mt-6">
         {navItems.map((item) => (
           <NavLink
             key={item.name}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center px-6 py-3 text-white text-opacity-90 hover:bg-white hover:bg-opacity-10 transition-colors duration-200 rounded-r-lg ${
+              `flex items-center px-4 sm:px-3 md:px-6 py-2 sm:py-2.5 md:py-3 text-white text-opacity-90 hover:bg-white hover:bg-opacity-10 transition-colors duration-200 rounded-r-lg text-sm sm:text-xs md:text-base ${
                 isActive ? "bg-white bg-opacity-20 text-white font-semibold border-r-4 border-blue-500" : ""
-              }`
-            }
+              }`}
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-4 md:w-5 mr-0 sm:mr-0 md:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={item.icon} />
             </svg>
-            {item.name}
+            <span className="md:inline hidden">{item.name}</span>
           </NavLink>
         ))}
       </nav>
